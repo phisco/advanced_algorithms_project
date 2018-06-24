@@ -48,40 +48,40 @@ void strongconnect(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt
     put(num, v, *i);
     s->push(v);
     put(ancestor, *i, true);
-    std::cout << get(num, v) << " enters" << std::endl;
+    // std::cout << get(num, v) << " enters" << std::endl;
     put(sm, *i, true);
     std::pair<vertex_iter, vertex_iter> vp;
     typename graph_traits<Graph>::adjacency_iterator w, ai_end;
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
-        std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
+        // std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
         if (get(num, *w) == 0){
-            std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
+            // std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
             strongconnect(g, *w, i, c, num, lowpt, lowvine, component, s, sm, ancestor);
             put(lowpt, v, get(lowpt, *w) > get(lowpt, v) ? get(lowpt, v) : get(lowpt, *w));
             put(lowvine, v, get(lowvine, *w) > get(lowvine, v) ? get(lowvine, v) : get(lowvine, *w));
         } else if (get(ancestor, get(num, *w))) /* w is an ancestor of v */{
-            std::cout << "cond 2 : " << get(num, v) << " " << get(num, *w) << std::endl;
+            // std::cout << "cond 2 : " << get(num, v) << " " << get(num, *w) << std::endl;
             put(lowpt, v, get(num, *w) > get(lowpt, v) ? get(lowpt, v) : get(num, *w));
         } else if (get(num, *w) < get(num, v) && (get(sm, get(num, v)))){
-                std::cout << "cond 3 : " << get(num, v) << " " << get(num, *w) << std::endl;
+                // std::cout << "cond 3 : " << get(num, v) << " " << get(num, *w) << std::endl;
                 put(lowvine, v, get(num, *w) > get(lowvine, v) ? get(lowvine, v) : get(num, *w));
         }
     }
-    std::cout << "final : " << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
+    // std::cout << "final : " << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
     if ((get(lowpt, v) == get(num, v)) && (get(lowvine, v) == get(num, v))){
         *c += 1;
-        std::cout << *c << " : ";
+        //std::cout << *c << " : ";
         int vn = get(num, v);
         while(!s->empty() && get(num, s->top()) >= vn){
             Vertex w = s->top();
             s->pop();
             put(sm, get(num, w), false);
             put(component, w, *c);
-            std::cout << get(num, w) << " ";
+            // std::cout << get(num, w) << " ";
         }
         std::cout << std::endl;
     }
-    std::cout << get(num, v) << " exits" << std::endl;
+    // std::cout << get(num, v) << " exits" << std::endl;
     put(ancestor, get(num, v), false);
 }
 template <class Graph, class Num, class Lowpt, class Lowvine, class Component, class StackMember, class Ancestor>
