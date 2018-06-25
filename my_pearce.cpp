@@ -94,7 +94,7 @@ int pearce_main(const Graph& g, Rindex rindex) {
             pearce(g, v, &index, &c, rindex, &s);
         }
     }
-    return c;
+    return num_vertices(g) - 1 - c;
 }
 
 template <class Graph, class Rindex>
@@ -107,6 +107,7 @@ int pearce_scc(const Graph& g, Rindex rindex)
     return pearce_main(g, rindex);
 }
 
+/*
 int main(int, char*[])
 {
     typedef std::pair<int, int> Edge;
@@ -129,19 +130,21 @@ int main(int, char*[])
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
-    std::vector<int> rindex(num_vertices(g));
 
     std::cout << "A directed graph:" << std::endl;
     print_graph(g, name);
     std::cout << std::endl;
 
+    std::vector<int> rindex(num_vertices(g));
     int num = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
 
     std::cout << "Number of components: "<< num << std::endl;
 
-    for (int i = 0; i != rindex.size(); ++i){
+    for (int i = 0; i != num_vertices(g); ++i){
         std::cout << name[i] << " -> " << rindex[i] << std::endl;
     }
+    std::cout << compare_results(rindex, rindex) << std::endl;
     return 0;
 }
 
+*/

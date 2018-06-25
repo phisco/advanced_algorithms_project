@@ -126,6 +126,7 @@ int tarjan_scc(const Graph& g, Component component)
                        make_iterator_property_map(&stackmember[0], get(vertex_index,g)));
 }
 
+/*
 int main(int, char*[])
 {
     typedef std::pair<int, int> Edge;
@@ -146,21 +147,32 @@ int main(int, char*[])
     };
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
-    std::vector<Vertex> component(num_vertices(g));
 
     std::cout << "A directed graph:" << std::endl;
     print_graph(g, name);
     std::cout << std::endl;
 
-    int num = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    std::vector<int> component(num_vertices(g));
+    int num_tarjan = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
 
-    std::cout << "Number of components: "<< num << std::endl;
+
+    std::vector<int> root(num_vertices(g));
+    int num_nuutila = nuutila_scc(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
+
+    std::vector<int> rindex(num_vertices(g));
+    int num_pearce = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
+
+    std::cout << num_tarjan << num_nuutila << num_pearce << std::endl;
+
+    //std::cout << "Check same results : " << (num_pearce==num_tarjan) << (num_tarjan==num_nuutila) << compare_results(component, root) << compare_results(root, rindex) << std::endl;
+    std::cout << "Check same results : " << ((num_pearce==num_tarjan) && (num_tarjan==num_nuutila) && compare_results(component, root) && compare_results(root, rindex)) << std::endl;
+    std::cout << "Number of components: "<< num_tarjan << std::endl;
     //std::cout << "Total number of components: " << num << std::endl;
 
 
     for (int i = 0; i != component.size(); ++i){
-        std::cout << name[i] << " -> " << name[component[i]] << std::endl;
+        std::cout << name[i] << " -> " << component[i] << "\t" << root[i] << "\t" << rindex[i] << std::endl;
     }
     return 0;
 }
-
+*/

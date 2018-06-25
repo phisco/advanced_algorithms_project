@@ -115,6 +115,7 @@ int nuutila_scc(const Graph& g, Root root)
                        make_iterator_property_map(&inComponent[0], get(vertex_index,g)));
 }
 
+/*
 int main(int, char*[])
 {
     typedef std::pair<int, int> Edge;
@@ -137,12 +138,12 @@ int main(int, char*[])
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
-    std::vector<Vertex> root(num_vertices(g));
 
     std::cout << "A directed graph:" << std::endl;
     print_graph(g, name);
     std::cout << std::endl;
 
+    std::vector<int> root(num_vertices(g));
     int num = nuutila_scc(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
 
     std::cout << "Number of components: "<< num << std::endl;
@@ -153,3 +154,4 @@ int main(int, char*[])
     return 0;
 }
 
+*/
