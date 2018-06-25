@@ -3,6 +3,7 @@
 #include "my_pearce.cpp"
 #include "my_nuutila.cpp"
 #include "my_tarjan.cpp"
+#include "utils.cpp"
 #include <boost/timer/timer.hpp>
 #include <iostream>
 #include <vector>
@@ -22,31 +23,6 @@ typedef typename graph_traits<Graph>::vertex_iterator vertex_iter;
 typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor Vertex;
 typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
-
-template <class Result1, class Result2>
-bool compare_results(Result1 r1, Result2 r2){
-    if (r1.size() != r2.size())
-        return false;
-    int maxVal=0;
-    for(int i=0; i!=r1.size(); i++){
-        maxVal = std::max(maxVal, r1[i]);
-    }
-    for(int i=0; i!=r2.size(); i++){
-        maxVal = std::max(maxVal, r2[i]);
-    }
-    int comp[maxVal+1];
-    for (int i=0; i != maxVal+1; i++)
-        comp[i]=0;
-
-    for (int i = 0; i != r1.size(); i++){
-        if (comp[r1[i]]==0)
-            comp[r1[i]]=r2[i];
-        if (comp[r1[i]]!=r2[i]){
-            return false;
-        }
-    }
-    return true;
-}
 
 int main(int, char*[])
 {
