@@ -43,7 +43,7 @@ typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor 
 typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
 template <class Graph, class Num, class Root, class InComponent, class Stack>
-void strongconnect(const Graph g, const Vertex v, int* i, int*c, Num num, Root root, InComponent inComponent, Stack s) {
+void nuutila(const Graph g, const Vertex v, int* i, int*c, Num num, Root root, InComponent inComponent, Stack s) {
     *i += 1;
     put(root, v, v);
     put(inComponent, v, false);
@@ -54,7 +54,7 @@ void strongconnect(const Graph g, const Vertex v, int* i, int*c, Num num, Root r
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
         if (get(num, *w) == 0){
             // std::cout << "cond 1, check : " << get(num, v) << ", " << *i+1 << std::endl;
-            strongconnect(g, *w, i, c, num, root, inComponent, s);
+            nuutila(g, *w, i, c, num, root, inComponent, s);
         }
         if (!get(inComponent, *w)) {
             // std::cout << "cond 2, check : " << get(num, v) << ", " << get(num, *w) << std::endl;
@@ -82,7 +82,7 @@ void strongconnect(const Graph g, const Vertex v, int* i, int*c, Num num, Root r
     // std::cout << "exit : " << get(num, v) << std::endl;
 }
 template <class Graph, class Num, class InComponent, class Root>
-int strongconnect_main(const Graph& g, Num num, Root root, InComponent inComponent) {
+int nuutila_main(const Graph& g, Num num, Root root, InComponent inComponent) {
     std::pair<vertex_iter, vertex_iter> vp;
     std::stack<Vertex> s;
     int i = 0;
@@ -90,14 +90,14 @@ int strongconnect_main(const Graph& g, Num num, Root root, InComponent inCompone
     for (vp = vertices(g); vp.first != vp.second; ++vp.first){
         Vertex v = *vp.first;
         if (get(num, v) == 0){
-            strongconnect(g, v, &i, &c, num, root, inComponent, &s);
+            nuutila(g, v, &i, &c, num, root, inComponent, &s);
         }
     }
     return c;
 }
 
 template <class Graph, class Root>
-int my_strong_components(const Graph& g, Root root)
+int nuutila_scc(const Graph& g, Root root)
 {
     std::vector<int> number(num_vertices(g));
     bool inComponent[num_vertices(g)];
@@ -107,7 +107,7 @@ int my_strong_components(const Graph& g, Root root)
         inComponent[i] = false;
     }
 
-    return strongconnect_main(g,
+    return nuutila_main(g,
                        make_iterator_property_map(number.begin(), get(vertex_index, g)),
                        root,
                        make_iterator_property_map(&inComponent[0], get(vertex_index,g)));
@@ -141,7 +141,7 @@ int main(int, char*[])
     print_graph(g, name);
     std::cout << std::endl;
 
-    int num = my_strong_components(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
+    int num = nuutila_scc(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
 
     std::cout << "Number of components: "<< num << std::endl;
 

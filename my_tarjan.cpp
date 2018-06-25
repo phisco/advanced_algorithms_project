@@ -43,7 +43,7 @@ typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor 
 typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
 template <class Graph, class Num, class Lowpt, class Lowvine, class Component, class Stack, class StackMember, class Ancestor>
-void strongconnect(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt lowpt, Lowvine lowvine, Component component, Stack s, StackMember sm, Ancestor ancestor) {
+void tarjan(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt lowpt, Lowvine lowvine, Component component, Stack s, StackMember sm, Ancestor ancestor) {
     *i += 1;
     put(lowvine, v, *i);
     put(lowpt, v, *i);
@@ -58,7 +58,7 @@ void strongconnect(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt
         // std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
         if (get(num, *w) == 0){
             // std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
-            strongconnect(g, *w, i, c, num, lowpt, lowvine, component, s, sm, ancestor);
+            tarjan(g, *w, i, c, num, lowpt, lowvine, component, s, sm, ancestor);
             put(lowpt, v, get(lowpt, *w) > get(lowpt, v) ? get(lowpt, v) : get(lowpt, *w));
             put(lowvine, v, get(lowvine, *w) > get(lowvine, v) ? get(lowvine, v) : get(lowvine, *w));
         } else if (get(ancestor, get(num, *w))) /* w is an ancestor of v */{
@@ -87,7 +87,7 @@ void strongconnect(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt
     put(ancestor, get(num, v), false);
 }
 template <class Graph, class Num, class Lowpt, class Lowvine, class Component, class StackMember, class Ancestor>
-int strongconnect_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Component component, StackMember sm, Ancestor ancestor) {
+int tarjan_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Component component, StackMember sm, Ancestor ancestor) {
     std::pair<vertex_iter, vertex_iter> vp;
     std::stack<Vertex> s;
     int i = 0;
@@ -95,14 +95,14 @@ int strongconnect_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Co
     for (vp = vertices(g); vp.first != vp.second; ++vp.first){
         Vertex v = *vp.first;
         if (get(num, v) == 0){
-            strongconnect(g, v, &i, &c, num, lowpt, lowvine, component, &s, sm, ancestor);
+            tarjan(g, v, &i, &c, num, lowpt, lowvine, component, &s, sm, ancestor);
         }
     }
     return c;
 }
 
 template <class Graph, class Component>
-int my_strong_components(const Graph& g, Component component)
+int tarjan_scc(const Graph& g, Component component)
 {
     std::vector<int> lowvine(num_vertices(g)),
             number(num_vertices(g)),
@@ -115,7 +115,7 @@ int my_strong_components(const Graph& g, Component component)
         ancestor[i] = false;
     }
 
-    return strongconnect_main(g,
+    return tarjan_main(g,
                        make_iterator_property_map(number.begin(), get(vertex_index, g)),
                        make_iterator_property_map(lowpt.begin(), get(vertex_index, g)),
                        make_iterator_property_map(lowvine.begin(), get(vertex_index, g)),
@@ -150,7 +150,7 @@ int main(int, char*[])
     print_graph(g, name);
     std::cout << std::endl;
 
-    int num = my_strong_components(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    int num = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
 
     std::cout << "Number of components: "<< num << std::endl;
     //std::cout << "Total number of components: " << num << std::endl;
