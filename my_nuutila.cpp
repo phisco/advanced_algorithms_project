@@ -118,9 +118,9 @@ int main(int, char*[])
     typedef std::pair<int, int> Edge;
 
     const int num_nodes = 8;
-    enum nodes { A, B, C, D, E, F, G, H};
-    char name[] = "ABCDEFGH";
-    int n = (int)'A';
+
+    enum nodes { A, B, C, D, E, F, G, H, I, L, M, N};
+    char name[] = "ABCDEFGHILMN";
 
     Edge edge_array[] = { Edge(A, B),
                           Edge(B, C), Edge(B, H),
@@ -128,8 +128,11 @@ int main(int, char*[])
                           Edge(D, E),
                           Edge(E, F), Edge(E, C),
                           Edge(G, F), Edge(G, D),
-                          Edge(H, A), Edge(H, G)
+                          Edge(H, A), Edge(H, G),
+                          Edge(I, L),
+                          Edge(M, N), Edge(N, M)
     };
+
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
     std::vector<Vertex> root(num_vertices(g));
@@ -143,7 +146,7 @@ int main(int, char*[])
     std::cout << "Number of components: "<< num << std::endl;
 
     for (int i = 0; i != root.size(); ++i){
-        std::cout << (char)(n+i) << " -> " << name[root[i]] << std::endl;
+        std::cout << name[i] << " -> " << name[root[i]] << std::endl;
     }
     return 0;
 }
