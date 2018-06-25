@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <boost/timer/timer.hpp>
 #include <boost/graph/strong_components.hpp>
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graph_utility.hpp>
@@ -87,6 +88,7 @@ int nuutila_main(const Graph& g, Num num, Root root, InComponent inComponent) {
     std::stack<Vertex> s;
     int i = 0;
     int c = 0;
+    timer::auto_cpu_timer t;
     for (vp = vertices(g); vp.first != vp.second; ++vp.first){
         Vertex v = *vp.first;
         if (get(num, v) == 0){

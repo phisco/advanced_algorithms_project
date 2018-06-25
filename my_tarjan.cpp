@@ -3,6 +3,7 @@
 //
 
 #include <boost/config.hpp>
+#include <boost/timer/timer.hpp>
 #include <iostream>
 #include <vector>
 #include <stack>
@@ -92,6 +93,7 @@ int tarjan_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Component
     std::stack<Vertex> s;
     int i = 0;
     int c = 0;
+    timer::auto_cpu_timer t;
     for (vp = vertices(g); vp.first != vp.second; ++vp.first){
         Vertex v = *vp.first;
         if (get(num, v) == 0){

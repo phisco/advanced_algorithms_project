@@ -2,6 +2,7 @@
 // Created by phisco on 6/23/18.
 //
 
+#include <boost/timer/timer.hpp>
 #include <boost/config.hpp>
 #include <iostream>
 #include <vector>
@@ -86,6 +87,7 @@ int pearce_main(const Graph& g, Rindex rindex) {
     std::stack<Vertex> s;
     int index = 1;
     int c = num_vertices(g) - 1;
+    timer::auto_cpu_timer t;
     for (vp = vertices(g); vp.first != vp.second; ++vp.first){
         Vertex v = *vp.first;
         if (get(rindex, v) == 0){
