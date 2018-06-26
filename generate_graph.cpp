@@ -12,12 +12,13 @@ using namespace std;
 
 int main(int,char*[])
 {
+    boost::dynamic_properties dp;
     boost::minstd_rand gen;
     // Create graph with 100 nodes and edges with probability 0.05
-    Graph g(ERGen(gen, 100, 0.05), ERGen(), 100);
-
-    boost::dynamic_properties dp;
-    write_graphml(std::cout, g, dp, true);
+    for (int i=10; i <= 100000; i*=10) {
+        Graph g(ERGen(gen, 100, 0.05), ERGen(), 100);
+        write_graphml(std::cout, g, dp, true);
+    }
 
     return 0;
 }
