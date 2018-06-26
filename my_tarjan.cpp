@@ -13,28 +13,7 @@
 #include <boost/config.hpp>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/property_map/property_map.hpp>
-/*
-  Sample output:
-A directed graph:
-A --> B
-B --> C H
-C --> D G
-D --> E
-E --> F C
-F -->
-G --> F D
-H --> A G
 
-Total number of components: 3
-Vertex A is in component 2
-Vertex B is in component 2
-Vertex C is in component 1
-Vertex D is in component 1
-Vertex E is in component 1
-Vertex F is in component 0
-Vertex G is in component 1
-Vertex H is in component 2
- */
 using namespace boost;
 
 typedef adjacency_list < listS, vecS, directedS> Graph;

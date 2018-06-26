@@ -4,7 +4,6 @@
 #include "my_pearce.cpp"
 #include "my_nuutila.cpp"
 #include "my_tarjan.cpp"
-//#include "utils.cpp"
 #include <boost/timer/timer.hpp>
 #include <iostream>
 #include <vector>
@@ -93,22 +92,18 @@ int main(int, char*[])
     };
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
+    std::cout << "A directed graph:" << std::endl;
     print_graph(g,name);
-
+    std::cout << std::endl;
     /*
     dynamic_properties dp;
     minstd_rand gen;
     // Create graph with 100 nodes and edges with probability 0.05
     int nodes= 200;
     Graph g(ERGen(gen, nodes, 0.01), ERGen(), nodes);
-    */
-    /*
-    std::cout << "A directed graph:" << std::endl;
-    print_graph(g, name);
-    std::cout << std::endl;
 
     write_graphml(std::cout, g, dp, true);
-     */
+    */
 
     std::vector<int> component(num_vertices(g));
     for(int i = 0; i<component.size(); i++)
