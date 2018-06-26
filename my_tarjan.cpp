@@ -52,25 +52,25 @@ void tarjan(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt lowpt,
     s->push(v);
     put(ancestor, *i, true);
     put(sm, *i, true);
-    // std::cout << get(num, v) << " enters" << std::endl;
+    //std::cout << get(num, v) << " enters" << std::endl;
     std::pair<vertex_iter, vertex_iter> vp;
     typename graph_traits<Graph>::adjacency_iterator w, ai_end;
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
-        // std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
+        //std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
         if (get(num, *w) == 0){
-            // std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
+            //std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
             tarjan(g, *w, i, c, num, lowpt, lowvine, component, s, sm, ancestor);
             put(lowpt, v, get(lowpt, *w) > get(lowpt, v) ? get(lowpt, v) : get(lowpt, *w));
             put(lowvine, v, get(lowvine, *w) > get(lowvine, v) ? get(lowvine, v) : get(lowvine, *w));
         } else if (get(ancestor, get(num, *w))) /* w is an ancestor of v */{
-            // std::cout << "cond 2 : " << get(num, v) << " " << get(num, *w) << std::endl;
+            //std::cout << "cond 2 : " << get(num, v) << " " << get(num, *w) << std::endl;
             put(lowpt, v, get(num, *w) > get(lowpt, v) ? get(lowpt, v) : get(num, *w));
-        } else if (get(num, *w) < get(num, v) && (get(sm, get(num, v)))){
-                // std::cout << "cond 3 : " << get(num, v) << " " << get(num, *w) << std::endl;
+        } else if (get(num, *w) < get(num, v) && (get(sm, get(num, *w)))){
+                //std::cout << "cond 3 : " << get(num, v) << " " << get(num, *w) << std::endl;
                 put(lowvine, v, get(num, *w) > get(lowvine, v) ? get(lowvine, v) : get(num, *w));
         }
     }
-    // std::cout << "final : " << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
+    //std::cout << "final : " << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
     if ((get(lowpt, v) == get(num, v)) && (get(lowvine, v) == get(num, v))){
         *c += 1;
         //std::cout << *c << " : ";
@@ -79,12 +79,12 @@ void tarjan(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt lowpt,
             Vertex w = s->top();
             s->pop();
             put(sm, get(num, w), false);
-            put(component, w, v);
-            // std::cout << get(num, w) << " ";
+            put(component, w, *c);
+            //std::cout << get(num, w) << " ";
         }
-        // std::cout << std::endl;
+        //std::cout << std::endl;
     }
-    // std::cout << get(num, v) << " exits" << std::endl;
+    //std::cout << get(num, v) << " exits" << std::endl;
     put(ancestor, get(num, v), false);
 }
 template <class Graph, class Num, class Lowpt, class Lowvine, class Component, class StackMember, class Ancestor>
@@ -125,25 +125,21 @@ int tarjan_scc(const Graph& g, Component component)
                        make_iterator_property_map(&ancestor[0], get(vertex_index,g)),
                        make_iterator_property_map(&stackmember[0], get(vertex_index,g)));
 }
-
 /*
 int main(int, char*[])
 {
     typedef std::pair<int, int> Edge;
 
     const int num_nodes = 8;
-    enum nodes { A, B, C, D, E, F, G, H, I, L, M, N};
-    char name[] = "ABCDEFGHILMN";
+    enum nodes { A, B, C, D, E, F, G, H, I, L};
+    char name[] = "ABCDEFGHIL";
 
-    Edge edge_array[] = { Edge(A, B),
-                          Edge(B, C), Edge(B, H),
-                          Edge(C, D), Edge(C, G),
-                          Edge(D, E),
-                          Edge(E, F), Edge(E, C),
-                          Edge(G, F), Edge(G, D),
-                          Edge(H, A), Edge(H, G),
+    Edge edge_array[] = { Edge(A, G),
+                          Edge(B, F),
+                          Edge(D, C),
+                          Edge(H, A),
                           Edge(I, L),
-                          Edge(M, N), Edge(N, M)
+                          Edge(E, I)
     };
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
@@ -155,23 +151,12 @@ int main(int, char*[])
     std::vector<int> component(num_vertices(g));
     int num_tarjan = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
 
-
-    std::vector<int> root(num_vertices(g));
-    int num_nuutila = nuutila_scc(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
-
-    std::vector<int> rindex(num_vertices(g));
-    int num_pearce = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
-
-    std::cout << num_tarjan << num_nuutila << num_pearce << std::endl;
-
-    //std::cout << "Check same results : " << (num_pearce==num_tarjan) << (num_tarjan==num_nuutila) << compare_results(component, root) << compare_results(root, rindex) << std::endl;
-    std::cout << "Check same results : " << ((num_pearce==num_tarjan) && (num_tarjan==num_nuutila) && compare_results(component, root) && compare_results(root, rindex)) << std::endl;
     std::cout << "Number of components: "<< num_tarjan << std::endl;
     //std::cout << "Total number of components: " << num << std::endl;
 
 
     for (int i = 0; i != component.size(); ++i){
-        std::cout << name[i] << " -> " << component[i] << "\t" << root[i] << "\t" << rindex[i] << std::endl;
+        std::cout << name[i] << " -> " << component[i] << std::endl;
     }
     return 0;
 }
