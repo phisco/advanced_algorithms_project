@@ -23,7 +23,7 @@ typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor 
 typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
 template <class Graph, class Rindex, class Stack>
-void pearce(const Graph g, const Vertex v, int* index, int*c, Rindex rindex, Stack s) {
+void pearce_visit_nr(const Graph g, const Vertex v, int* index, int*c, Rindex rindex, Stack s) {
     bool root = true;
     put(rindex, v, *index);
     *index += 1;
@@ -33,7 +33,7 @@ void pearce(const Graph g, const Vertex v, int* index, int*c, Rindex rindex, Sta
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
         if (get(rindex, *w) == 0){
             //std::cout << "cond 1, check : " << get(rindex, v) << ", " << *index << std::endl;
-            pearce(g, *w, index, c, rindex, s);
+            pearce_visit_nr(g, *w, index, c, rindex, s);
         }
         if (get(rindex, *w) < get(rindex, v)) {
             //std::cout << "cond 2, check : " << get(rindex, v) << ", " << get(rindex, *w) << std::endl;
@@ -61,7 +61,7 @@ void pearce(const Graph g, const Vertex v, int* index, int*c, Rindex rindex, Sta
     // std::cout << "exit : " << get(num, v) << std::endl;
 }
 template <class Graph, class Rindex>
-int pearce_main(const Graph& g, Rindex rindex) {
+int pearce_not_recursive_main(const Graph& g, Rindex rindex) {
     std::pair<vertex_iter, vertex_iter> vp;
     std::stack<Vertex> s;
     int index = 1;
@@ -70,18 +70,18 @@ int pearce_main(const Graph& g, Rindex rindex) {
     for (vp = vertices(g); vp.first != vp.second; ++vp.first){
         Vertex v = *vp.first;
         if (get(rindex, v) == 0){
-            pearce(g, v, &index, &c, rindex, &s);
+            pearce_visit_nr(g, v, &index, &c, rindex, &s);
         }
     }
     return num_vertices(g) - 1 - c;
 }
 
 template <class Graph, class Rindex>
-int pearce_scc(const Graph& g, Rindex rindex)
+int pearce_not_recursive_scc(const Graph& g, Rindex rindex)
 {
     for (int i = 0; i < num_vertices(g); i++){
         rindex[i] = 0;
     }
 
-    return pearce_main(g, rindex);
+    return pearce_not_recursive_main(g, rindex);
 }
