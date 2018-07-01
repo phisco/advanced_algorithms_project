@@ -2,35 +2,29 @@
 // Created by phisco on 6/23/18.
 //
 
-#include <boost/timer/timer.hpp>
-#include <boost/config.hpp>
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <boost/graph/strong_components.hpp>
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/graph_utility.hpp>
-#include <boost/config.hpp>
-#include <boost/graph/graph_traits.hpp>
-#include <boost/property_map/property_map.hpp>
 #include "my_pearce.cpp"
 
 using namespace boost;
 
-typedef adjacency_list < vecS, vecS, directedS> Graph;
+#ifndef TYPEDEF
+#define TYPEDEF
+
+typedef adjacency_list <vecS, vecS, directedS> Graph;
 typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
 typedef typename graph_traits<Graph>::vertex_iterator vertex_iter;
 typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor Vertex;
 typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
+#endif
+
 int main(int, char*[])
 {
     typedef std::pair<int, int> Edge;
 
-    const int num_nodes = 8;
 
     enum nodes { A, B, C, D, E, F, G, H, I, L, M, N};
     char name[] = "ABCDEFGHILMN";
+    const int num_nodes = N - A + 1;
 
     Edge edge_array[] = { Edge(A, B),
                           Edge(B, C), Edge(B, H),

@@ -1,6 +1,8 @@
 
 #include <boost/property_map/dynamic_property_map.hpp>
 #include <boost/config.hpp>
+#include <boost/graph/graphml.hpp>
+#include "include_and_types.cpp"
 #include "my_pearce.cpp"
 #include "my_nuutila.cpp"
 #include "my_tarjan.cpp"
@@ -17,17 +19,11 @@
 
 #include <boost/graph/erdos_renyi_generator.hpp>
 #include <boost/random/linear_congruential.hpp>
-#include <boost/graph/graphml.hpp>
 
 using namespace boost;
 
-typedef adjacency_list < vecS, vecS, directedS> Graph;
-typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
-typedef typename graph_traits<Graph>::vertex_iterator vertex_iter;
-typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor Vertex;
-typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
-
 typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
+
 template <class Result1, class Result2>
 bool compare_results(const Result1 r1, const Result2 r2){
     if (r1.size() != r2.size())
