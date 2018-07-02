@@ -145,9 +145,9 @@ int main(int, char*[])
     //std::cout << "Total number of components: " << num << std::endl;
 
 
-    std::cout << "No" << "\t->\tBgl\tTa\tNu\tPe"<< std::endl;
+    std::cout << "No" << "\t->\tBgl\tTa\tNu\tPe\tPeNr" << std::endl;
     for (int i = 0; i != component.size(); ++i){
-        std::cout << i << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] << std::endl;
+        std::cout << i << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] << "\t" << rindex_not_recursive[i] << std::endl;
     }
     return 0;
 }
