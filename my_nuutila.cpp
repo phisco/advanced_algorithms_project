@@ -64,16 +64,17 @@ int nuutila_main(const Graph& g, Num num, Root root, InComponent inComponent) {
 template <class Graph, class Root>
 int nuutila_scc(const Graph& g, Root root)
 {
-    std::vector<int> number(num_vertices(g));
-    bool inComponent[num_vertices(g)];
+    int n = num_vertices(g);
+    std::vector<int> number(n);
+    std::vector<bool> inComponent(n);
     IndexMap index = get(vertex_index, g);
 
-    for (int i = 0; i < num_vertices(g); i++){
+    for (int i = 0; i < n; i++){
         inComponent[i] = false;
     }
 
     return nuutila_main(g,
-                       make_iterator_property_map(number.begin(), get(vertex_index, g)),
+                       make_iterator_property_map(number.begin(), index),
                        root,
-                       make_iterator_property_map(&inComponent[0], get(vertex_index,g)));
+                       make_iterator_property_map(inComponent.begin(), index));
 }

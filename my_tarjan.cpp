@@ -69,22 +69,23 @@ int tarjan_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Component
 template <class Graph, class Component>
 int tarjan_scc(const Graph& g, Component component)
 {
-    std::vector<int> lowvine(num_vertices(g)),
-            number(num_vertices(g)),
-            lowpt(num_vertices(g));
-    bool stackmember[num_vertices(g)], ancestor[num_vertices(g)];
+    int n = num_vertices(g);
+    std::vector<int> lowvine(n),
+            number(n),
+            lowpt(n);
+    std::vector<bool> stackmember(n), ancestor(n);
     IndexMap index = get(vertex_index, g);
 
-    for (int i = 0; i < num_vertices(g); i++){
+    for (int i = 0; i < n; i++){
         stackmember[i] = false;
         ancestor[i] = false;
     }
 
     return tarjan_main(g,
-                       make_iterator_property_map(number.begin(), get(vertex_index, g)),
-                       make_iterator_property_map(lowpt.begin(), get(vertex_index, g)),
-                       make_iterator_property_map(lowvine.begin(), get(vertex_index, g)),
+                       make_iterator_property_map(number.begin(), index),
+                       make_iterator_property_map(lowpt.begin(), index),
+                       make_iterator_property_map(lowvine.begin(), index),
                        component,
-                       make_iterator_property_map(&ancestor[0], get(vertex_index,g)),
-                       make_iterator_property_map(&stackmember[0], get(vertex_index,g)));
+                       make_iterator_property_map(ancestor.begin(), index),
+                       make_iterator_property_map(stackmember.begin(), index));
 }
