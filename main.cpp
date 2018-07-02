@@ -16,6 +16,8 @@
 #include <boost/config.hpp>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/property_map/property_map.hpp>
+#include "my_pearce_not_recursive.cpp"
+
 
 #include <boost/graph/erdos_renyi_generator.hpp>
 #include <boost/random/linear_congruential.hpp>
@@ -70,8 +72,8 @@ std::vector<int> correct_nuutila_root(std::vector<int> vec){
 }
 int main(int, char*[])
 {
+    /*
     typedef std::pair<int, int> Edge;
-
     const int num_nodes = 8;
     enum nodes { A, B, C, D, E, F, G, H, I, L, M, N};
     char name[] = "ABCDEFGHILMN";
@@ -91,56 +93,61 @@ int main(int, char*[])
     std::cout << "A directed graph:" << std::endl;
     print_graph(g,name);
     std::cout << std::endl;
-    /*
+    */
+
     dynamic_properties dp;
     minstd_rand gen;
     // Create graph with 100 nodes and edges with probability 0.05
-    int nodes= 200;
-    Graph g(ERGen(gen, nodes, 0.01), ERGen(), nodes);
+    int nodes= 30;
+    Graph g(ERGen(gen, nodes, 0.05), ERGen(), nodes);
 
     write_graphml(std::cout, g, dp, true);
-    */
 
+
+    std::cout << "Tarjan\t\t" << std::flush;
     std::vector<int> component(num_vertices(g));
     for(int i = 0; i<component.size(); i++)
         component[i]=0;
     int num_tarjan = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
 
-
+    std::cout << "Nuutila\t\t" << std::flush;
     std::vector<int> root_nuutila(num_vertices(g));
     for(int i = 0; i<root_nuutila.size(); i++)
         root_nuutila[i]=0;
     int num_nuutila = nuutila_scc(g, make_iterator_property_map(root_nuutila.begin(), get(vertex_index, g)));
     root_nuutila= correct_nuutila_root(root_nuutila);
 
+    std::cout << "Pearce\t\t" << std::flush;
     std::vector<int> rindex(num_vertices(g));
     for(int i = 0; i<rindex.size(); i++)
         rindex[i]=0;
     int num_pearce = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
 
+    std::cout << "Pearce_NR\t" << std::flush;
+    std::vector<int> rindex_not_recursive(num_vertices(g));
+    int num_pearce_not_recursive = pearce_not_recursive_scc(g, make_iterator_property_map(rindex_not_recursive.begin(), get(vertex_index, g)));
 
     std::vector<int> bgl_component(num_vertices(g)), discover_time(num_vertices(g));
     std::vector<default_color_type> bgl_color(num_vertices(g));
     std::vector<Vertex> bgl_root(num_vertices(g));
-
     int num_bgl = strong_components(g,
                                 make_iterator_property_map(bgl_component.begin(), get(vertex_index, g)),
                                 root_map(make_iterator_property_map(bgl_root.begin(), get(vertex_index, g))).
                                         color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
                                         discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
 
-    std::cout << "Correct result tarjan: " << compare_results(bgl_component, component)<< ", " << (num_bgl == num_tarjan) << std::endl;
-    std::cout << "Correct result pearce: " << compare_results(bgl_component, rindex)<< ", " << (num_bgl == num_pearce) << std::endl;
-    std::cout << "Correct result nuutila: " << compare_results(bgl_component, root_nuutila) << ", " << (num_bgl == num_nuutila) << std::endl;
-    std::cout << "Check same results : " << ((num_pearce==num_tarjan) && (num_tarjan==num_nuutila) && compare_results(component, root_nuutila) && compare_results(root_nuutila, rindex)) << " : " <<
-              (num_pearce==num_tarjan) << (num_tarjan==num_nuutila) << (num_pearce==num_nuutila) << compare_results(component, root_nuutila) << compare_results(root_nuutila, rindex) << std::endl;
-    std::cout << "Number of components: bgl:"<< num_bgl << ", ta:" << num_tarjan << ", nu:" << num_nuutila << ", pe:" << num_pearce << std::endl;
+    std::cout << "Correct result tarjan:\t" << compare_results(bgl_component, component)<< ", " << (num_bgl == num_tarjan) << std::endl;
+    std::cout << "Correct result nuutila:\t" << compare_results(bgl_component, root_nuutila) << ", " << (num_bgl == num_nuutila) << std::endl;
+    std::cout << "Correct result pearce:\t" << compare_results(bgl_component, rindex)<< ", " << (num_bgl == num_pearce) << std::endl;
+    std::cout << "Correct result pearce not recursive:\t" << compare_results(bgl_component, rindex_not_recursive)<< ", " << (num_bgl == num_pearce_not_recursive) << std::endl;
+
+    std::cout << "Number of components: bgl:"<< num_bgl << ", ta:" << num_tarjan << ", nu:" << num_nuutila << ", pe:" << num_pearce  << ", pe_nr:" << num_pearce_not_recursive << std::endl;
     //std::cout << "Total number of components: " << num << std::endl;
 
 
     std::cout << "No" << "\t->\tBgl\tTa\tNu\tPe"<< std::endl;
     for (int i = 0; i != component.size(); ++i){
-        std::cout << name[i] << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] << std::endl;
+        std::cout << i << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] << std::endl;
     }
     return 0;
 }
