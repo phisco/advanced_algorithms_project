@@ -2,29 +2,47 @@
 // Created by phisco on 6/23/18.
 //
 
+#include <boost/timer/timer.hpp>
+#include <boost/config.hpp>
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <boost/graph/strong_components.hpp>
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/graph_utility.hpp>
+#include <boost/config.hpp>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/property_map/property_map.hpp>
 #include "my_pearce.cpp"
+#include "my_pearce_not_recursive.cpp"
 
 using namespace boost;
 
-#ifndef TYPEDEF
-#define TYPEDEF
-
-typedef adjacency_list <vecS, vecS, directedS> Graph;
+typedef adjacency_list < vecS, vecS, directedS> Graph;
 typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
 typedef typename graph_traits<Graph>::vertex_iterator vertex_iter;
 typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor Vertex;
 typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
-#endif
-
 int main(int, char*[])
 {
     typedef std::pair<int, int> Edge;
 
+    enum { A, B, C, D, E, F, G, H, I, N };
+    const int num_nodes = N;
+    const char* name = "ABCDEFGHI";
+
+    // writing out the edges in the graph
+    typedef std::pair<int, int> Edge;
+    Edge edge_array[] =
+            { Edge(A,B), Edge(B,A), Edge(A,C), Edge(C,A), Edge(B,D), Edge(C,D),
+              Edge(E,C), Edge(E,F), Edge(F,D), Edge(D,F), Edge(E,H), Edge(H,F), Edge(H,G), Edge(G,E),
+              Edge(I,G), Edge(I,H), Edge(I,I)};
+    const int num_arcs = sizeof(edge_array)/sizeof(edge_array[0]);
+    /*const int num_nodes = 8;
 
     enum nodes { A, B, C, D, E, F, G, H, I, L, M, N};
     char name[] = "ABCDEFGHILMN";
-    const int num_nodes = N - A + 1;
 
     Edge edge_array[] = { Edge(A, B),
                           Edge(B, C), Edge(B, H),
@@ -38,6 +56,7 @@ int main(int, char*[])
     };
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
+    */
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
 
     std::cout << "A directed graph:" << std::endl;
@@ -45,7 +64,10 @@ int main(int, char*[])
     std::cout << std::endl;
 
     std::vector<int> rindex(num_vertices(g));
-    int num = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
+    //Recursive Version
+    //int num = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
+    //Imperative Version
+    int num = pearce_not_recursive_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
 
     std::cout << "Number of components: "<< num << std::endl;
 
