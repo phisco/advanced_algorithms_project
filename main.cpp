@@ -140,7 +140,7 @@ int main(int, char*[])
 
     std::cout << "No" << "\t->\tBgl\tTa\tNu\tPe"<< std::endl;
     for (int i = 0; i != component.size(); ++i){
-        std::cout << i << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] << std::endl;
+        std::cout << name[i] << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] << std::endl;
     }
     return 0;
 }
