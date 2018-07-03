@@ -6,6 +6,17 @@
 #include "include_and_types.cpp"
 #include <set>
 #include "my_transitive_closure.cpp"
+#include <boost/graph/erdos_renyi_generator.hpp>
+#include <boost/random/linear_congruential.hpp>
+#include <boost/graph/graphml.hpp>
+#include <boost/property_map/dynamic_property_map.hpp>
+#include <boost/graph/transitive_closure.hpp>
+
+typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
+
+
+using namespace std;
+
 
 int main(int, char*[]){
     enum { A, B, C, D, E, F, G, H, I, N };
@@ -27,7 +38,10 @@ int main(int, char*[]){
     std::cout << "A directed graph:" << std::endl;
     print_graph(g, name);
     std::cout << std::endl;
-
+    /*
+    Graph g;
+    dynamic_properties dp;
+    read_graphml(std::cin, g, dp);*/
 
     std::vector<Vertex> root(num_vertices(g));
     std::vector<bool> inComp(num_vertices(g));
@@ -39,9 +53,14 @@ int main(int, char*[]){
     transitive_closure_scc(g,  make_iterator_property_map(root.begin(), get(vertex_index,g)),
                            make_iterator_property_map(inComp.begin(), get(vertex_index,g)),
                            make_iterator_property_map(sets.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(num.begin(), get(vertex_index,g)),sets, name);
+                           make_iterator_property_map(num.begin(), get(vertex_index,g)),sets, "");
 
+    //used only to compare results
+    std::cout << "Result provided by BGL"<<std::endl;
+    Graph gt;
 
+    transitive_closure(g,gt);
+    print_graph(gt, get(vertex_index,g));
     return 0;
 
 }
