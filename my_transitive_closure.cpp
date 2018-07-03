@@ -57,10 +57,10 @@ void tc(const Graph g, const Vertex v, Root root, InComponent inComp, Set succ, 
             put(inComp,v,true);
         }
     }else{
-        if(get(num,s->top())!=get(num, get(root,v)) || s->empty()){
+        if(get(num,s->top())!=get(num, get(root,v)) || s->empty())
             s->push(get(root,v));
-            get(succ,get(root,v))->insert(v);
-        }
+        get(succ,get(root,v))->insert(v);
+
     }
 }
 
@@ -104,7 +104,7 @@ void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, N
     vertex_iter it, it_end;
     for(boost::tie(it,it_end)=vertices(g);it!=it_end;++it){
         Vertex v=*it;
-        std::set<Vertex>* set=get(succ,v);
+        std::set<Vertex>* set=get(succ,get(root,v));
         std::cout << name[*it] << "-> ";
         std::set<Vertex>::iterator i;
         for(i=set->begin();i!=set->end();++i){
