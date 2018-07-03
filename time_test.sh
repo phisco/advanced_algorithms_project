@@ -5,7 +5,7 @@ if [ $# !=  1 ]
 fi
 for g in `ls $1 | sort -n`
 do 
-    echo "-$g--------------------------------";
+    echo "$g";
     ./cmake-build-debug/test_stdin < $1/$g;
 done
 
