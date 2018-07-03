@@ -66,7 +66,7 @@ void tc(const Graph g, const Vertex v, Root root, InComponent inComp, Set succ, 
 }
 
 template <class Graph, class Root, class InComponent, class Set, class Num>
-int transitive_closure_main(Graph g, Root root, InComponent inComp, Set succ, Num num,  std::vector<std::set<Vertex>*> sets){
+void transitive_closure_main(Graph g, Root root, InComponent inComp, Set succ, Num num,  std::vector<std::set<Vertex>*> sets){
     std::stack<Vertex> s;
     Vertex starter=add_vertex(g);
     put(num, starter, -1);
@@ -82,8 +82,6 @@ int transitive_closure_main(Graph g, Root root, InComponent inComp, Set succ, Nu
 
         }
     }
-
-
 };
 
 template <class Graph, class Root, class InComponent, class Set, class Num>
@@ -99,9 +97,8 @@ void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, N
         put(succ,v,&vect[*vi]);
     }
 
-    int number = transitive_closure_main(g, root, inComp, succ, num, sets);
+    transitive_closure_main(g, root, inComp, succ, num, sets);
 
-    std::cout << "Number of components: "<< number << std::endl;
     vertex_iter it, it_end;
     for(boost::tie(it,it_end)=vertices(g);it!=it_end;++it){
         Vertex v=*it;
