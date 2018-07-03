@@ -17,7 +17,7 @@ add_executable(tarjan main_tarjan.cpp)
 add_executable(nuutila main_nuutila.cpp)
 add_executable(pearce main_pearce.cpp)
 add_executable(pearce_nr main_pearce_not_recursive.cpp)
-add_executable(transitive_closure my_transitive_closure.cpp main_transitive_closure.cpp)
+add_executable(transitive_closure main_transitive_closure.cpp)
 
 TARGET_LINK_LIBRARIES(main ${Boost_LIBRARIES} )
 TARGET_LINK_LIBRARIES(generate_graph ${Boost_LIBRARIES} )
