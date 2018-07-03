@@ -10,6 +10,7 @@ FIND_PACKAGE( Boost 1.65 COMPONENTS graph timer REQUIRED )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
 add_executable(main main.cpp)
+add_executable(test_stdin test_from_stdin.cpp)
 add_executable(generate_graph generate_graph.cpp)
 add_executable(tarjan_bgl example_tarjan.cpp)
 add_executable(tarjan main_tarjan.cpp)
@@ -24,4 +25,6 @@ TARGET_LINK_LIBRARIES(tarjan ${Boost_LIBRARIES} )
 TARGET_LINK_LIBRARIES(nuutila ${Boost_LIBRARIES} )
 TARGET_LINK_LIBRARIES(pearce ${Boost_LIBRARIES} )
 TARGET_LINK_LIBRARIES(pearce_nr ${Boost_LIBRARIES} )
+TARGET_LINK_LIBRARIES(test_stdin ${Boost_LIBRARIES} )
+
 
