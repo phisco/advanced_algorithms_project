@@ -19,7 +19,7 @@ using namespace std;
 
 
 int main(int, char*[]){
-    enum { A, B, C, D, E, F, G, H, I, N };
+    /*enum { A, B, C, D, E, F, G, H, I, N };
     const int num_nodes = N;
     const char* name = "ABCDEFGHI";
 
@@ -33,15 +33,16 @@ int main(int, char*[]){
 
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
-    Graph g(edge_array, edge_array + num_arcs, num_nodes);
+    Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
 
-    std::cout << "A directed graph:" << std::endl;
-    print_graph(g, name);
-    std::cout << std::endl;
-    /*
+
     Graph g;
     dynamic_properties dp;
-    read_graphml(std::cin, g, dp);*/
+    read_graphml(std::cin, g, dp);
+
+    std::cout << "A directed graph:" << std::endl;
+    print_graph(g, get(vertex_index, g));
+    std::cout << std::endl;
 
     std::vector<Vertex> root(num_vertices(g));
     std::vector<bool> inComp(num_vertices(g));
@@ -53,7 +54,7 @@ int main(int, char*[]){
     transitive_closure_scc(g,  make_iterator_property_map(root.begin(), get(vertex_index,g)),
                            make_iterator_property_map(inComp.begin(), get(vertex_index,g)),
                            make_iterator_property_map(sets.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(num.begin(), get(vertex_index,g)),sets, "");
+                           make_iterator_property_map(num.begin(), get(vertex_index,g)),sets);
 
     //used only to compare results
     std::cout << "Result provided by BGL"<<std::endl;

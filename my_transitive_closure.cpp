@@ -33,9 +33,9 @@ void tc(const Graph g, const Vertex v, Root root, InComponent inComp, Set succ, 
     for(it=roots.begin();it!=roots.end();++it){
         Vertex r=*it;
         std::set<Vertex>* succRoot=get(succ, get(root,v));
-        get(succ,r)->insert(r);
         set_union(get(succ,r)->begin(),get(succ,r)->end(),succRoot->begin(), succRoot->end(),
                   std::inserter(*succRoot,succRoot->begin()));
+        succRoot->insert(r);
 
     }
 
@@ -85,8 +85,7 @@ void transitive_closure_main(Graph g, Root root, InComponent inComp, Set succ, N
 };
 
 template <class Graph, class Root, class InComponent, class Set, class Num>
-void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, Num num, std::vector<std::set<Vertex>*> sets,
-    const char* name){
+void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, Num num, std::vector<std::set<Vertex>*> sets){
 
     std::vector<std::set<Vertex>> vect(num_vertices(g));
 
@@ -104,7 +103,7 @@ void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, N
     for(boost::tie(it,it_end)=vertices(g);it!=it_end;++it){
         Vertex v=*it;
         std::set<Vertex>* set=get(succ,get(root,v));
-        std::cout << index[*it] << "-> ";
+        std::cout << index[*it] << " --> ";
         std::set<Vertex>::iterator i;
         for(i=set->begin();i!=set->end();++i){
             std::cout << *i << " ";
