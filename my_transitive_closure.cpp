@@ -22,7 +22,7 @@ void tc(const Graph g, const Vertex v, Root root, InComponent inComp, Set succ, 
         if(get(num,w)==0)
             tc(g,w,root,inComp, succ, s, num, index);
         if(!get(inComp,get(root,w)))
-            put(root, v, get(root,w)<get(root,v) ? get(root,w) : get(root,v));
+            put(root, v, get(num, get(root,w))<get(num,get(root,v)) ? get(root,w) : get(root,v));
         else
             //complexity logaritmic in size
             roots.insert(get(root,w));
