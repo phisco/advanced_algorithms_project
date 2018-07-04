@@ -36,8 +36,8 @@ int main(int, char*[]){
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
 
     //for debugging purpouses
-    //std::ifstream in("/home/emanuele/Scrivania/advanced_algorithms_project/graphs/6_0.4_10.xml");
-    //std::cin.rdbuf(in.rdbuf());
+    std::ifstream in("/home/emanuele/Scrivania/advanced_algorithms_project/graphs/6_0.1_3.xml");
+    std::cin.rdbuf(in.rdbuf());
 
     Graph g;
     dynamic_properties dp;
@@ -57,11 +57,11 @@ int main(int, char*[]){
 
 
     //used only to compare results
-    std::cout << "Result provided by BGL"<<std::endl;
+    std::cout << "BGL"<<std::endl;
     Graph gt;
 
     transitive_closure(g,gt);
-    print_graph(gt, get(vertex_index,g));
+    print_graph(gt, get(vertex_index,gt));
 
     return 0;
 

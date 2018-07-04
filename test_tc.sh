@@ -18,3 +18,5 @@ do
     cat $1/$g | ./cmake-build-debug/transitive_closure | uniq >> ./tc_results/result.txt;
     echo "----------------------------------------------------------------------------" >> ./tc_results/result.txt;
 done
+
+python show.py

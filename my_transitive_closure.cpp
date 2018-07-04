@@ -72,7 +72,7 @@ void transitive_closure_main(Graph g, Root root, InComponent inComp, Set succ, N
     s.push(starter);
     remove_vertex(starter,g);
     vertex_iter vi,v_end;
-
+    timer::auto_cpu_timer t;
     int i=0;
     for(boost::tie(vi,v_end)=vertices(g);vi!=v_end;++vi){
         Vertex v=*vi;
@@ -99,7 +99,7 @@ void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, s
 
     transitive_closure_main(g, root, inComp, succ, make_iterator_property_map(&num[0],get(vertex_index,g)), sets);
 
-
+    std::cout << "Ours" << std::endl;
     IndexMap index = get(vertex_index,g);
     vertex_iter it, it_end;
     for(boost::tie(it,it_end)=vertices(g);it!=it_end;++it){
