@@ -8,7 +8,6 @@
 
 typedef graph_traits<Graph>::adjacency_iterator adj_iter;
 
-
 template <class Graph, class Root, class InComponent, class Set, class Stack, class Num>
 void tc(const Graph g, const Vertex v, Root root, InComponent inComp, Set succ, Stack s, Num num, int*index){
     ++*index;
@@ -84,19 +83,22 @@ void transitive_closure_main(Graph g, Root root, InComponent inComp, Set succ, N
     }
 };
 
-template <class Graph, class Root, class InComponent, class Set, class Num>
-void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, Num num, std::vector<std::set<Vertex>*> sets){
+template <class Graph, class Root, class InComponent, class Set>
+void transitive_closure_scc(Graph& g, Root root, InComponent inComp, Set succ, std::vector<std::set<Vertex>*> sets){
 
     std::vector<std::set<Vertex>> vect(num_vertices(g));
+    int num[num_vertices(g)];
 
     vertex_iter vi,v_end;
     for(boost::tie(vi,v_end)=vertices(g);vi!=v_end;++vi){
         Vertex v=*vi;
         std::set<Vertex>* punt=&vect[*vi];
         put(succ,v,&vect[*vi]);
+        num[v]=0;
     }
 
-    transitive_closure_main(g, root, inComp, succ, num, sets);
+    transitive_closure_main(g, root, inComp, succ, make_iterator_property_map(&num[0],get(vertex_index,g)), sets);
+
 
     IndexMap index = get(vertex_index,g);
     vertex_iter it, it_end;

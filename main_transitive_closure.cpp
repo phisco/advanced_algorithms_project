@@ -35,6 +35,9 @@ int main(int, char*[]){
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
 
+    //for debugging purpouses
+    //std::ifstream in("/home/emanuele/Scrivania/advanced_algorithms_project/graphs/6_0.4_10.xml");
+    //std::cin.rdbuf(in.rdbuf());
 
     Graph g;
     dynamic_properties dp;
@@ -47,14 +50,11 @@ int main(int, char*[]){
     std::vector<Vertex> root(num_vertices(g));
     std::vector<bool> inComp(num_vertices(g));
     std::vector<std::set<Vertex>*> sets(num_vertices(g));
-    std::vector<int> num(num_vertices(g));
-
-
 
     transitive_closure_scc(g,  make_iterator_property_map(root.begin(), get(vertex_index,g)),
                            make_iterator_property_map(inComp.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(sets.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(num.begin(), get(vertex_index,g)),sets);
+                           make_iterator_property_map(sets.begin(), get(vertex_index,g)),sets);
+
 
     //used only to compare results
     std::cout << "Result provided by BGL"<<std::endl;
@@ -62,6 +62,7 @@ int main(int, char*[]){
 
     transitive_closure(g,gt);
     print_graph(gt, get(vertex_index,g));
+
     return 0;
 
 }
