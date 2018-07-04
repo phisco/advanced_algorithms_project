@@ -5,9 +5,10 @@
 #include <boost/property_map/dynamic_property_map.hpp>
 #include <iostream>
 #include <stdlib.h>     /* atoi */
-#include "include_and_types.cpp"
+//#include "include_and_types.cpp"
 
-typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
+typedef boost::adjacency_list <boost::setS, boost::vecS, boost::directedS, boost::no_property, boost::disallow_parallel_edge_tag> G;
+typedef boost::erdos_renyi_iterator<boost::minstd_rand, G> ERGen;
 
 using namespace std;
 
@@ -25,7 +26,7 @@ int main(int argc,char* argv[])
         p = atof(argv[2]);
     } else return 1;
 
-    Graph g(ERGen(gen, n, p), ERGen(), n);
+    G g(ERGen(gen, n, p), ERGen(), n);
     write_graphml(std::cout, g, dp, true);
 
     return 0;
