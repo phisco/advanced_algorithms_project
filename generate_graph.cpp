@@ -5,8 +5,8 @@
 #include <boost/property_map/dynamic_property_map.hpp>
 #include <iostream>
 #include <stdlib.h>     /* atoi */
+#include "include_and_types.cpp"
 
-typedef boost::adjacency_list<> Graph;
 typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
 
 using namespace std;
