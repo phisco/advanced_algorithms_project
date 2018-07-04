@@ -8,5 +8,5 @@ mkdir -p $1
 for i in `seq $2 $3 $4 `
 do
     echo $i
-    ./cmake-build-debug/generate_graph $i $5 > $1/$i.xml
+    ./cmake-build-debug/generate_graph $i $5 > $1/$i\_$5.xml
 done
