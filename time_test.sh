@@ -5,7 +5,7 @@ if [ $# !=  1 ]
 fi
 for g in `ls $1 | sort -n`
 do 
-    echo "$g";
+    echo "$g" "`du -h $1/$g | awk '{print $1}'`";
     ./cmake-build-debug/test_stdin < $1/$g;
 done
 

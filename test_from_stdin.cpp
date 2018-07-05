@@ -95,10 +95,10 @@ int main(int, char*[])
         rindex[i]=0;
     int num_pearce = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
 
-    std::cout << "Pearce_NR\t" << std::flush;
+    /*std::cout << "Pearce_NR\t" << std::flush;
     std::vector<int> rindex_not_recursive(num_vertices(g));
     int num_pearce_not_recursive = pearce_not_recursive_scc(g, make_iterator_property_map(rindex_not_recursive.begin(), get(vertex_index, g)));
-
+    */
     std::vector<int> bgl_component(num_vertices(g)), discover_time(num_vertices(g));
     std::vector<default_color_type> bgl_color(num_vertices(g));
     std::vector<Vertex> bgl_root(num_vertices(g));
@@ -107,9 +107,9 @@ int main(int, char*[])
                                 root_map(make_iterator_property_map(bgl_root.begin(), get(vertex_index, g))).
                                         color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
                                         discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
-
+    std::cout << "Components:\t" << num_bgl << std::endl;
     std::cout << "Correct:\t" << (compare_results(bgl_component, component) && compare_results(bgl_component, root_nuutila) &&
-        compare_results(bgl_component, rindex) &&  compare_results(bgl_component, rindex_not_recursive)) << std::endl;
+        compare_results(bgl_component, rindex) /*&&  compare_results(bgl_component, rindex_not_recursive)*/) << std::endl;
 }
 
 
