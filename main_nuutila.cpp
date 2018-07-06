@@ -73,7 +73,7 @@ int main(int, char*[])
     IndexMap index = get(vertex_index,g);
     
     for (int i = 0; i != root.size(); ++i){
-        std::cout << index[i] << " -> " << name[root[i]] << std::endl;
+        std::cout << index[i] << " -> " << index[root[i]] << std::endl;
     }
     return 0;
 }
