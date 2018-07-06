@@ -3,6 +3,11 @@
 //
 
 #include "my_nuutila.cpp"
+#include <boost/graph/erdos_renyi_generator.hpp>
+#include <boost/random/linear_congruential.hpp>
+#include <boost/graph/graphml.hpp>
+#include <boost/property_map/dynamic_property_map.hpp>
+#include <boost/graph/transitive_closure.hpp>
 
 using namespace boost;
 
@@ -19,7 +24,7 @@ typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
 int main(int, char*[])
 {
-    enum { A, B, C, D, E, F, G, H, I, N };
+    /*enum { A, B, C, D, E, F, G, H, I, N };
     const int num_nodes = N;
     const char* name = "ABCDEFGHI";
 
@@ -31,7 +36,7 @@ int main(int, char*[])
               Edge(I,G), Edge(I,H), Edge(I,I)};
     const int num_edges = sizeof(edge_array)/sizeof(edge_array[0]);
 
-    /*typedef std::pair<int, int> Edge;
+    typedef std::pair<int, int> Edge;
 
     const int num_nodes = 8;
 
@@ -47,13 +52,17 @@ int main(int, char*[])
                           Edge(H, A), Edge(H, G),
                           Edge(I, L),
                           Edge(M, N), Edge(N, M)
-    };*/
+    };
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
-    Graph g(edge_array, edge_array + num_arcs, num_nodes);
+    Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
+    
+     Graph g;
+    dynamic_properties dp;
+    read_graphml(std::cin, g, dp);
 
     std::cout << "A directed graph:" << std::endl;
-    print_graph(g, name);
+    print_graph(g, get(vertex_index,g));
     std::cout << std::endl;
 
     std::vector<int> root(num_vertices(g));
@@ -61,8 +70,10 @@ int main(int, char*[])
 
     std::cout << "Number of components: "<< num << std::endl;
 
+    IndexMap index = get(vertex_index,g);
+    
     for (int i = 0; i != root.size(); ++i){
-        std::cout << name[i] << " -> " << name[root[i]] << std::endl;
+        std::cout << index[i] << " -> " << name[root[i]] << std::endl;
     }
     return 0;
 }
