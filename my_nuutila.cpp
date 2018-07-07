@@ -5,9 +5,8 @@
 #include "include_and_types.cpp"
 
 using namespace boost;
-
 template <class Graph, class Num, class Root, class InComponent, class Stack>
-void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num num, Root root, InComponent inComponent, Stack s) {
+void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num& num, Root& root, InComponent& inComponent, Stack s) {
     *i += 1;
     put(root, v, v);
     put(inComponent, v, false);
@@ -46,7 +45,7 @@ void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num num, Root root, 
     // std::cout << "exit : " << v << std::endl;
 }
 template <class Graph, class Num, class InComponent, class Root>
-int nuutila_main(const Graph& g, Num num, Root root, InComponent inComponent) {
+int nuutila_main(const Graph& g, Num num, Root& root, InComponent inComponent) {
     std::pair<vertex_iter, vertex_iter> vp;
     std::stack<Vertex> s; // v*w
     int i = 0;

@@ -7,9 +7,9 @@
 using namespace boost;
 
 template <class Graph, class Rindex, class Stack>
-void pearce(const Graph& g, const Vertex v, int* index, int*c, Rindex rindex, Stack s) {
-    bool root = true;
+void pearce(const Graph& g, const Vertex& v, int* index, int* c, Rindex& rindex, Stack s) {
     put(rindex, v, *index);
+    bool root = true;
     *index += 1;
     //std::cout << get(rindex, v) << " enters" << std::endl;
     //std::pair<vertex_iter, vertex_iter> vp;
@@ -45,7 +45,7 @@ void pearce(const Graph& g, const Vertex v, int* index, int*c, Rindex rindex, St
     // std::cout << "exit : " << get(num, v) << std::endl;
 }
 template <class Graph, class Rindex>
-int pearce_main(const Graph& g, Rindex rindex) {
+int pearce_main(const Graph& g, Rindex& rindex) {
     std::pair<vertex_iter, vertex_iter> vp;
     std::stack<Vertex> s;
     int index = 1;
