@@ -7,7 +7,7 @@
 using namespace boost;
 
 template <class Graph, class Rindex, class Stack>
-void pearce(const Graph g, const Vertex v, int* index, int*c, Rindex rindex, Stack s) {
+void pearce(const Graph& g, const Vertex v, int* index, int*c, Rindex rindex, Stack s) {
     bool root = true;
     put(rindex, v, *index);
     *index += 1;

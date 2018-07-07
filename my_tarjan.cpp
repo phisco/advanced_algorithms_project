@@ -7,7 +7,7 @@
 using namespace boost;
 
 template <class Graph, class Num, class Lowpt, class Lowvine, class Component, class Stack, class StackMember, class Ancestor>
-void tarjan(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt lowpt, Lowvine lowvine, Component component, Stack s, StackMember sm, Ancestor ancestor) {
+void tarjan(const Graph& g, const Vertex v, int* i, int* c, Num num, Lowpt lowpt, Lowvine lowvine, Component component, Stack s, StackMember sm, Ancestor ancestor) {
     *i += 1;
     put(lowvine, v, *i);
     put(lowpt, v, *i);
@@ -53,7 +53,7 @@ void tarjan(const Graph g, const Vertex v, int* i, int* c, Num num, Lowpt lowpt,
 template <class Graph, class Num, class Lowpt, class Lowvine, class Component, class StackMember, class Ancestor>
 int tarjan_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Component component, StackMember sm, Ancestor ancestor) {
     std::pair<vertex_iter, vertex_iter> vp;
-    std::stack<Vertex> s;
+    std::stack<Vertex> s; // v*w
     int i = 0;
     int c = 0;
     timer::auto_cpu_timer t;
@@ -82,10 +82,10 @@ int tarjan_scc(const Graph& g, Component component)
     }
 
     return tarjan_main(g,
-                       make_iterator_property_map(number.begin(), index),
-                       make_iterator_property_map(lowpt.begin(), index),
-                       make_iterator_property_map(lowvine.begin(), index),
-                       component,
-                       make_iterator_property_map(ancestor.begin(), index),
-                       make_iterator_property_map(stackmember.begin(), index));
+                       make_iterator_property_map(number.begin(), index), // v*w
+                       make_iterator_property_map(lowpt.begin(), index),  // v*w
+                       make_iterator_property_map(lowvine.begin(), index), // v*w
+                       component, // v*w
+                       make_iterator_property_map(ancestor.begin(), index), // v
+                       make_iterator_property_map(stackmember.begin(), index)); //v
 }

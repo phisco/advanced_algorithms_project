@@ -7,7 +7,7 @@
 using namespace boost;
 
 template <class Graph, class Num, class Root, class InComponent, class Stack>
-void nuutila(const Graph g, const Vertex v, int* i, int*c, Num num, Root root, InComponent inComponent, Stack s) {
+void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num num, Root root, InComponent inComponent, Stack s) {
     *i += 1;
     put(root, v, v);
     put(inComponent, v, false);
@@ -48,7 +48,7 @@ void nuutila(const Graph g, const Vertex v, int* i, int*c, Num num, Root root, I
 template <class Graph, class Num, class InComponent, class Root>
 int nuutila_main(const Graph& g, Num num, Root root, InComponent inComponent) {
     std::pair<vertex_iter, vertex_iter> vp;
-    std::stack<Vertex> s;
+    std::stack<Vertex> s; // v*w
     int i = 0;
     int c = 0;
     timer::auto_cpu_timer t;
@@ -74,7 +74,7 @@ int nuutila_scc(const Graph& g, Root root)
     }
 
     return nuutila_main(g,
-                       make_iterator_property_map(number.begin(), index),
-                       root,
-                       make_iterator_property_map(inComponent.begin(), index));
+                       make_iterator_property_map(number.begin(), index), // v*w
+                       root,  // v*w
+                       make_iterator_property_map(inComponent.begin(), index)); // v
 }
