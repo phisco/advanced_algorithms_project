@@ -23,7 +23,9 @@ void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num& num, Root& root
             // std::cout << "cond 2, check : " << v << ", " << *w << std::endl;
             // std::cout << "root of " << v << " <- " << get(root, v) << " (" << get(num, v) << ")"<< std::endl;
             // std::cout << "root of " << *w << " <- " << get(root, *w) << " (" << get(num, *w) << ")"<< std::endl;
-            put(root, v, get(num, get(root, v)) > get(num, get(root, *w)) ? get(root, *w) : get(root, v));
+            auto rw = get(root, *w);
+            auto rv = get(root, v);
+            put(root, v, get(num, rv) > get(num, rw) ? rw : rv);
             // std::cout << "post root of " << v << " <- " << get(root, v) << std::endl;
         }
     }

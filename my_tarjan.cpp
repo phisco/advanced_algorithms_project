@@ -20,17 +20,22 @@ void tarjan(const Graph& g, const Vertex& v, int* i, int* c, Num& num, Lowpt& lo
     typename graph_traits<Graph>::adjacency_iterator w, ai_end;
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
         //std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
-        if (get(num, *w) == 0){
+        auto nw = get(num, *w);
+        auto lptv = get(lowpt, v);
+        auto lvinev = get(lowvine, v);
+        if (nw == 0){
             //std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
             tarjan(g, *w, i, c, num, lowpt, lowvine, component, s, sm, ancestor);
-            put(lowpt, v, get(lowpt, *w) > get(lowpt, v) ? get(lowpt, v) : get(lowpt, *w));
-            put(lowvine, v, get(lowvine, *w) > get(lowvine, v) ? get(lowvine, v) : get(lowvine, *w));
-        } else if (get(ancestor, get(num, *w))) /* w is an ancestor of v */{
+            auto lptw = get(lowpt, *w);
+            put(lowpt, v,  lptw > lptv ? lptv : lptw);
+            auto lvinew = get(lowvine, *w);
+            put(lowvine, v,  lvinew > lvinev ? lvinev : lvinew);
+        } else if (get(ancestor, nw)) /* w is an ancestor of v */{
             //std::cout << "cond 2 : " << get(num, v) << " " << get(num, *w) << std::endl;
-            put(lowpt, v, get(num, *w) > get(lowpt, v) ? get(lowpt, v) : get(num, *w));
-        } else if (get(num, *w) < get(num, v) && (get(sm, get(num, *w)))){
+            put(lowpt, v, nw > lptv ? lptv : nw);
+        } else if (nw < get(num, v) && (get(sm, nw))){
                 //std::cout << "cond 3 : " << get(num, v) << " " << get(num, *w) << std::endl;
-                put(lowvine, v, get(num, *w) > get(lowvine, v) ? get(lowvine, v) : get(num, *w));
+                put(lowvine, v, nw > lvinev ? lvinev : nw);
         }
     }
     //std::cout << "final : " << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
