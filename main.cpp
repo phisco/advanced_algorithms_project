@@ -16,7 +16,7 @@
 #include <boost/config.hpp>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/property_map/property_map.hpp>
-#include "my_pearce_not_recursive.cpp"
+//#include "my_pearce_not_recursive.cpp"
 
 
 #include <boost/graph/erdos_renyi_generator.hpp>
@@ -123,10 +123,10 @@ int main(int, char*[])
         rindex[i]=0;
     int num_pearce = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
 
-    std::cout << "Pearce_NR\t" << std::flush;
+    /*std::cout << "Pearce_NR\t" << std::flush;
     std::vector<int> rindex_not_recursive(num_vertices(g));
     int num_pearce_not_recursive = pearce_not_recursive_scc(g, make_iterator_property_map(rindex_not_recursive.begin(), get(vertex_index, g)));
-
+    */
     std::vector<int> bgl_component(num_vertices(g)), discover_time(num_vertices(g));
     std::vector<default_color_type> bgl_color(num_vertices(g));
     std::vector<Vertex> bgl_root(num_vertices(g));
@@ -139,15 +139,15 @@ int main(int, char*[])
     std::cout << "Correct result tarjan:\t" << compare_results(bgl_component, component)<< ", " << (num_bgl == num_tarjan) << std::endl;
     std::cout << "Correct result nuutila:\t" << compare_results(bgl_component, root_nuutila) << ", " << (num_bgl == num_nuutila) << std::endl;
     std::cout << "Correct result pearce:\t" << compare_results(bgl_component, rindex)<< ", " << (num_bgl == num_pearce) << std::endl;
-    std::cout << "Correct result pearce not recursive:\t" << compare_results(bgl_component, rindex_not_recursive)<< ", " << (num_bgl == num_pearce_not_recursive) << std::endl;
+    //std::cout << "Correct result pearce not recursive:\t" << compare_results(bgl_component, rindex_not_recursive)<< ", " << (num_bgl == num_pearce_not_recursive) << std::endl;
 
-    std::cout << "Number of components: bgl:"<< num_bgl << ", ta:" << num_tarjan << ", nu:" << num_nuutila << ", pe:" << num_pearce  << ", pe_nr:" << num_pearce_not_recursive << std::endl;
+    std::cout << "Number of components: bgl:"<< num_bgl << ", ta:" << num_tarjan << ", nu:" << num_nuutila << ", pe:" << num_pearce  /*<< ", pe_nr:" << num_pearce_not_recursive*/ << std::endl;
     //std::cout << "Total number of components: " << num << std::endl;
 
 
     std::cout << "No" << "\t->\tBgl\tTa\tNu\tPe\tPeNr" << std::endl;
     for (int i = 0; i != component.size(); ++i){
-        std::cout << i << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] << "\t" << rindex_not_recursive[i] << std::endl;
+        std::cout << i << "\t->\t"<< bgl_component[i] << "\t" << component[i] << "\t" << root_nuutila[i] << "\t" << rindex[i] /*<< "\t" << rindex_not_recursive[i]*/ << std::endl;
     }
     return 0;
 }

@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+.idea/*
+.ipynb_checkpoints/*
+CMakeCache.txt
+CMakeFiles/*
+cmake-build-debug/
+cmake_install.cmake
