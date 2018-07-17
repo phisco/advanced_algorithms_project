@@ -5,6 +5,7 @@ then
     max_edges"
     exit 1
 fi
+g++ -O2 -lboost_graph -lboost_timer generate_graph.cpp -o generate_graph.out
 mkdir -p $1
 for nodes in `seq $2 $3 $4 `
 do
@@ -15,7 +16,7 @@ do
         do
             p=`echo "$e / $max" | bc -l | awk '{printf "%f", $0}'`
             echo $nodes $p $e
-            ./cmake-build-debug/generate_graph $nodes $p > tmp
+            ./generate_graph $nodes $p > tmp
             edges=`tail tmp | awk '{print $2}' | grep "e[0-9]\+" | grep -o "[0-9]\+" | tail -n 1`
             if [ -z $edges ]
             then
