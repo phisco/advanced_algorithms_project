@@ -2,65 +2,13 @@
 // Created by phisco on 6/23/18.
 //
 
-#include <boost/timer/timer.hpp>
-#include <boost/config.hpp>
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <boost/graph/strong_components.hpp>
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/graph_utility.hpp>
-#include <boost/config.hpp>
-#include <boost/graph/graph_traits.hpp>
-#include <boost/property_map/property_map.hpp>
+
+#include "include_and_types.cpp"
+
 
 using namespace boost;
 
-//typedef adjacency_list < vecS, vecS, directedS> Graph;
-typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
-typedef typename graph_traits<Graph>::vertex_iterator vertex_iter;
-typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor Vertex;
-typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 typedef typename graph_traits<Graph>::out_edge_iterator out_edge_it;
-
-/*template <class Graph, class Rindex, class Stack>
-void pearce_visit_nr(const Graph g, const Vertex v, int* index, int*c, Rindex rindex, Stack vs, Stack is) {
-    bool root = true;
-    put(rindex, v, *index);
-    *index += 1;
-    //std::cout << get(rindex, v) << " enters" << std::endl;
-    //std::pair<vertex_iter, vertex_iter> vp;
-    typename graph_traits<Graph>::adjacency_iterator w, ai_end;
-    for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
-        if (get(rindex, *w) == 0){
-            //std::cout << "cond 1, check : " << get(rindex, v) << ", " << *index << std::endl;
-            pearce_visit_nr(g, *w, index, c, rindex, s);
-        }
-        if (get(rindex, *w) < get(rindex, v)) {
-            //std::cout << "cond 2, check : " << get(rindex, v) << ", " << get(rindex, *w) << std::endl;
-            put(rindex, v, get(rindex, *w));
-            root = false;
-        }
-    }
-    if(root){
-        //std::cout << "cond 3, check : " << get(rindex, v) << std::endl;
-        *index -= 1;
-        while(!s->empty() && get(rindex, s->top()) >= get(rindex, v)){
-            Vertex w = s->top();
-            //std::cout << get(rindex, v) << " <- " << get(rindex, w) << std::endl;
-            //std::cout << "stack pop : " << get(rindex, w) << std::endl;
-            s->pop();
-            put(rindex, w, *c);
-            *index -= 1;
-        }
-        put(rindex, v, *c);
-        *c -= 1;
-    } else {
-        //std::cout << "stack push : " << get(rindex, v) << std::endl;
-        s->push(v);
-    }
-    // std::cout << "exit : " << get(num, v) << std::endl;
-}*/
 
 template <class Stack, class StackInt, class Root, class Rindex>
 void finishVisiting(const Vertex v, Stack vs, StackInt is, int*index, Stack s, int*c, Root root, Rindex rindex){
@@ -85,8 +33,9 @@ void finishVisiting(const Vertex v, Stack vs, StackInt is, int*index, Stack s, i
 template <class Graph, class Rindex, class Root>
 void finishEdge(Graph& g, Vertex v, int k, out_edge_it it, Rindex rindex, Root root){
     Vertex w=target(*(it+k),g);
-    if(get(rindex,w)<get(rindex,v)){
-        put(rindex,v,get(rindex,w));
+    auto rw = get(rindex,w);
+    if(rw<get(rindex,v)){
+        put(rindex,v,rw);
         put(root,v,false);
     }
 }
@@ -136,7 +85,7 @@ void visitLoop(Graph g, Stack vs, StackInt is, int*index, Stack s, int*c, Rindex
 
 
 template<class Graph, class Stack, class StackInt, class Rindex, class Root>
-void visit(const Graph g, const Vertex v, Stack vs, StackInt is, Rindex rindex, int* index, Stack s, int*c, Root root){
+void visit(const Graph& g, const Vertex v, Stack vs, StackInt is, Rindex rindex, int* index, Stack s, int*c, Root root){
     beginVisiting(v,vs,is, index, rindex, root);
 
     while(!vs->empty()){

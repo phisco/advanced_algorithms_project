@@ -76,8 +76,23 @@ int main(int, char*[])
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);
 
+    std::vector<int> bgl_component(num_vertices(g)), discover_time(num_vertices(g));
+    std::vector<default_color_type> bgl_color(num_vertices(g));
+    std::vector<Vertex> bgl_root(num_vertices(g));
+    int num_bgl = strong_components(g,
+                                    make_iterator_property_map(bgl_component.begin(), get(vertex_index, g)),
+                                    root_map(make_iterator_property_map(bgl_root.begin(), get(vertex_index, g))).
+                                            color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
+                                            discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
+
+    // warmup run
     std::cout << "Tarjan\t\t" << std::flush;
     std::vector<int> component(num_vertices(g));
+    for(int i = 0; i<component.size(); i++)
+        component[i]=0;
+    tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
+
+    std::cout << "Tarjan\t\t" << std::flush;
     for(int i = 0; i<component.size(); i++)
         component[i]=0;
     int num_tarjan = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
@@ -99,14 +114,7 @@ int main(int, char*[])
     std::vector<int> rindex_not_recursive(num_vertices(g));
     int num_pearce_not_recursive = pearce_not_recursive_scc(g, make_iterator_property_map(rindex_not_recursive.begin(), get(vertex_index, g)));
     */
-    std::vector<int> bgl_component(num_vertices(g)), discover_time(num_vertices(g));
-    std::vector<default_color_type> bgl_color(num_vertices(g));
-    std::vector<Vertex> bgl_root(num_vertices(g));
-    int num_bgl = strong_components(g,
-                                make_iterator_property_map(bgl_component.begin(), get(vertex_index, g)),
-                                root_map(make_iterator_property_map(bgl_root.begin(), get(vertex_index, g))).
-                                        color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
-                                        discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
+
     std::cout << "Components:\t" << num_bgl << std::endl;
     std::cout << "Correct:\t" << (compare_results(bgl_component, component) && compare_results(bgl_component, root_nuutila) &&
         compare_results(bgl_component, rindex) /*&&  compare_results(bgl_component, rindex_not_recursive)*/) << std::endl;
