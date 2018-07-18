@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 if [ $# !=  1 ]
       then
               echo "help: time_test.sh root_dir"
