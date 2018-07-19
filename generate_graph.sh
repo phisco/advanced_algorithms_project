@@ -16,7 +16,7 @@ do
         do
             p=`echo "$e / $max" | bc -l | awk '{printf "%f", $0}'`
             echo $nodes $p $e
-            ./generate_graph $nodes $p > tmp
+            ./generate_graph.out $nodes $p > tmp
             edges=`tail tmp | awk '{print $2}' | grep "e[0-9]\+" | grep -o "[0-9]\+" | tail -n 1`
             if [ -z $edges ]
             then
