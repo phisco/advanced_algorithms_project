@@ -11,41 +11,34 @@ void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num& num, Root& root
     put(root, v, v);
     put(inComponent, v, false);
     put(num, v, *i);
-    // std::cout << v << " as " << get(num, v) << " enters" << std::endl;
     std::pair<vertex_iter, vertex_iter> vp;
     typename graph_traits<Graph>::adjacency_iterator w, ai_end;
     // iterate over outgoing edges
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
+
         if (get(num, *w) == 0){ // if not already visited
-            // std::cout << "cond 1, check : " << v << ", " << *i+1 << std::endl;
             nuutila(g, *w, i, c, num, root, inComponent, s);
         }
+
         if (!get(inComponent, *w)) { // if not yet in a component
-            // std::cout << "cond 2, check : " << v << ", " << *w << std::endl;
-            // std::cout << "root of " << v << " <- " << get(root, v) << " (" << get(num, v) << ")"<< std::endl;
-            // std::cout << "root of " << *w << " <- " << get(root, *w) << " (" << get(num, *w) << ")"<< std::endl;
             auto rw = get(root, *w);
             auto rv = get(root, v);
             put(root, v, get(num, rv) > get(num, rw) ? rw : rv);
-            // std::cout << "post root of " << v << " <- " << get(root, v) << std::endl;
         }
     }
+
     if(get(root, v) == v){ // if it's the root of itself
-        // std::cout << "cond 3, check : " << get(num, v) << std::endl;
         *c += 1;
         put(inComponent, v, true);
         while(!s->empty() && get(num, s->top()) > get(num, v)){
             Vertex w = s->top();
-            // std::cout << get(num, v) << " <- " << w << std::endl;
-            // std::cout << "stack pop : " << w << std::endl;
             s->pop();
             put(inComponent, w, true);
         }
     } else {
-        // std::cout << "stack push : " << get(num, v) << std::endl;
         s->push(v);
     }
-    // std::cout << "exit : " << v << std::endl;
+    
 }
 
 template <class Graph, class Num, class InComponent, class Root>

@@ -11,29 +11,29 @@ void pearce(const Graph& g, const Vertex& v, int* index, int* c, Rindex& rindex,
     put(rindex, v, *index);
     bool root = true;
     *index += 1;
-    //std::cout << get(rindex, v) << " enters" << std::endl;
-    //std::pair<vertex_iter, vertex_iter> vp;
+    
+    
     typename graph_traits<Graph>::adjacency_iterator w, ai_end;
     // iterate over the outgoing edges
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
         if (get(rindex, *w) == 0){ // if not already been visited
-            //std::cout << "cond 1, check : " << get(rindex, v) << ", " << *index << std::endl;
+            
             pearce(g, *w, index, c, rindex, s);
         }
         if (get(rindex, *w) < get(rindex, v)) {
-            //std::cout << "cond 2, check : " << get(rindex, v) << ", " << get(rindex, *w) << std::endl;
+            
             put(rindex, v, get(rindex, *w));
             root = false;
         }
     }
     if(root){
-        //std::cout << "cond 3, check : " << get(rindex, v) << std::endl;
+        
         *index -= 1;
         // pop from stack vertices in the component
         while(!s->empty() && get(rindex, s->top()) >= get(rindex, v)){
             Vertex w = s->top();
-            //std::cout << get(rindex, v) << " <- " << get(rindex, w) << std::endl;
-            //std::cout << "stack pop : " << get(rindex, w) << std::endl;
+            
+            
             s->pop();
             put(rindex, w, *c);
             *index -= 1;
@@ -41,7 +41,7 @@ void pearce(const Graph& g, const Vertex& v, int* index, int* c, Rindex& rindex,
         put(rindex, v, *c);
         *c -= 1;
     } else {
-        //std::cout << "stack push : " << get(rindex, v) << std::endl;
+        
         s->push(v);
     }
     // std::cout << "exit : " << get(num, v) << std::endl;

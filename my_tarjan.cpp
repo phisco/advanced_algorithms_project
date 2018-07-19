@@ -17,46 +17,36 @@ void tarjan(const Graph& g, const Vertex& v, int* i, int* c, Num& num, Lowpt& lo
     put(sm, *i, true);
     std::pair<vertex_iter, vertex_iter> vp;
     typename graph_traits<Graph>::adjacency_iterator w, ai_end;
-    //std::cout << get(num, v) << " enters" << std::endl;
 
     // iterate over the outgoing edges from vertex v
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
-        //std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
         auto nw = get(num, *w);
         auto lptv = get(lowpt, v);
         auto lvinev = get(lowvine, v);
-
+        
         // if w has not already been visited then call recursively tarjan over it
         if (nw == 0){
-            //std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
             tarjan(g, *w, i, c, num, lowpt, lowvine, component, s, sm, ancestor);
             auto lptw = get(lowpt, *w);
             put(lowpt, v,  lptw > lptv ? lptv : lptw);
             auto lvinew = get(lowvine, *w);
             put(lowvine, v,  lvinew > lvinev ? lvinev : lvinew);
         } else if (get(ancestor, nw)) /* w is an ancestor of v */{
-            //std::cout << "cond 2 : " << get(num, v) << " " << get(num, *w) << std::endl;
             put(lowpt, v, nw > lptv ? lptv : nw);
         } else if (nw < get(num, v) && (get(sm, nw))){ // check if w is still in the stack
-            //std::cout << "cond 3 : " << get(num, v) << " " << get(num, *w) << std::endl;
             put(lowvine, v, nw > lvinev ? lvinev : nw);
         }
     }
-    //std::cout << "final : " << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
     auto nv = get(num, v);
     if ((get(lowpt, v) == nv) && (get(lowvine, v) == nv)){
         *c += 1;
-        //std::cout << *c << " : ";
         while (!s->empty() && get(num, s->top()) >= nv){
             Vertex w = s->top();
             s->pop();
             put(sm, get(num, w), false);
             put(component, w, *c);
-            //std::cout << get(num, w) << " ";
         }
-        //std::cout << std::endl;
     }
-    //std::cout << get(num, v) << " exits" << std::endl;
     put(ancestor, nv, false);
 }
 
@@ -90,16 +80,13 @@ int tarjan_scc(const Graph& g, Component component)
     std::vector<int> lowvine(n),
             number(n),
             lowpt(n);
-
     std::vector<bool> stackmember(n), ancestor(n); // structures needed, but not specified in the paper
-
     IndexMap index = get(vertex_index, g);
 
     for (int i = 0; i < n; i++){
         stackmember[i] = false;
         ancestor[i] = false;
     }
-
     return tarjan_main(g,
                        make_iterator_property_map(number.begin(), index), // v*w
                        make_iterator_property_map(lowpt.begin(), index),  // v*w
