@@ -82,10 +82,10 @@ int main(int, char*[])
     int num_bgl = strong_components(g,
                                     make_iterator_property_map(bgl_component.begin(), get(vertex_index, g)),
                                     root_map(make_iterator_property_map(bgl_root.begin(), get(vertex_index, g))).
-                                            color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
-                                            discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
+                                    color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
+                                    discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
 
-    // warmup run
+    // warm up run
     std::cout << "Tarjan\t\t" << std::flush;
     std::vector<int> component(num_vertices(g));
     for(int i = 0; i<component.size(); i++)

@@ -14,12 +14,13 @@ void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num& num, Root& root
     // std::cout << v << " as " << get(num, v) << " enters" << std::endl;
     std::pair<vertex_iter, vertex_iter> vp;
     typename graph_traits<Graph>::adjacency_iterator w, ai_end;
+    // iterate over outgoing edges
     for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
-        if (get(num, *w) == 0){
+        if (get(num, *w) == 0){ // if not already visited
             // std::cout << "cond 1, check : " << v << ", " << *i+1 << std::endl;
             nuutila(g, *w, i, c, num, root, inComponent, s);
         }
-        if (!get(inComponent, *w)) {
+        if (!get(inComponent, *w)) { // if not yet in a component
             // std::cout << "cond 2, check : " << v << ", " << *w << std::endl;
             // std::cout << "root of " << v << " <- " << get(root, v) << " (" << get(num, v) << ")"<< std::endl;
             // std::cout << "root of " << *w << " <- " << get(root, *w) << " (" << get(num, *w) << ")"<< std::endl;
@@ -29,7 +30,7 @@ void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num& num, Root& root
             // std::cout << "post root of " << v << " <- " << get(root, v) << std::endl;
         }
     }
-    if(get(root, v) == v){
+    if(get(root, v) == v){ // if it's the root of itself
         // std::cout << "cond 3, check : " << get(num, v) << std::endl;
         *c += 1;
         put(inComponent, v, true);
@@ -46,19 +47,28 @@ void nuutila(const Graph& g, const Vertex v, int* i, int*c, Num& num, Root& root
     }
     // std::cout << "exit : " << v << std::endl;
 }
+
 template <class Graph, class Num, class InComponent, class Root>
 int nuutila_main(const Graph& g, Num num, Root& root, InComponent inComponent) {
     std::pair<vertex_iter, vertex_iter> vp;
     std::stack<Vertex> s; // v*w
+
+    // needed counters
     int i = 0;
     int c = 0;
+
+    // initialize the timer
     timer::auto_cpu_timer t;
+
+    // iterate over vertices
     for (vp = vertices(g); vp.first != vp.second; ++vp.first){
         Vertex v = *vp.first;
-        if (get(num, v) == 0){
+        if (get(num, v) == 0){ // if not already visited
             nuutila(g, v, &i, &c, num, root, inComponent, &s);
         }
     }
+
+    // return the number of component found
     return c;
 }
 
@@ -66,9 +76,11 @@ template <class Graph, class Root>
 int nuutila_scc(const Graph& g, Root root)
 {
     int n = num_vertices(g);
+    IndexMap index = get(vertex_index, g);
+
+    // initialize needed structures
     std::vector<int> number(n);
     std::vector<bool> inComponent(n);
-    IndexMap index = get(vertex_index, g);
 
     for (int i = 0; i < n; i++){
         inComponent[i] = false;

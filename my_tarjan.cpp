@@ -91,8 +91,8 @@ int tarjan_scc(const Graph& g, Component component)
             number(n),
             lowpt(n);
 
-    // structures needed, but not specified in the paper
-    std::vector<bool> stackmember(n), ancestor(n);
+    std::vector<bool> stackmember(n), ancestor(n); // structures needed, but not specified in the paper
+
     IndexMap index = get(vertex_index, g);
 
     for (int i = 0; i < n; i++){
