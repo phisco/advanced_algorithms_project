@@ -50,7 +50,7 @@ int main(int, char*[])
     read_graphml(std::cin, g, dp);*/
 
     typedef std::pair<int, int> Edge;
-    int n= 10000;
+    int n= 100000;
     Edge edge_array[n-1];
 
 
