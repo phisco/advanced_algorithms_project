@@ -45,6 +45,7 @@ int main(int, char*[])
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
 
+    //This function takes a graph formatted by graphml fashion from the stdin
     /*Graph g;
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);*/
@@ -65,6 +66,7 @@ int main(int, char*[])
     print_graph(g, get(vertex_index,g));
     std::cout << std::endl;*/
 
+    //PearceClass object
     PearceClass<typeInt> pearce(&g);
     std::vector<int>* rindex = pearce.pearce_scc();
 

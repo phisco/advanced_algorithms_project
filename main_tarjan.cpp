@@ -11,24 +11,10 @@ using namespace boost;
 int main(int argc, char*argv[])
 {
 
+    //This function takes a graph formatted by graphml fashion from the stdin
     /*Graph g;
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);*/
-
-
-    /*Graph g;
-    typedef std::pair<int, int> Edge;
-    int n=100000;
-    for(int i=0;i<n;i++){
-        add_vertex(g);
-    }
-    vertex_iter it1,it2;
-    Vertex v,w;
-    for(boost::tie(it1,it2)=vertices(g);it1!=it2-1;++it1){
-        v=*it1;
-        w=*(it1+1);
-        add_edge(v,w,g);
-    }*/
 
     /*
     typedef std::pair<int, int> Edge;
@@ -59,7 +45,7 @@ int main(int argc, char*argv[])
     std::cout << std::endl;*/
 
     typedef std::pair<int, int> Edge;
-    int n= 100000;
+    int n= 10000;
     Edge edge_array[n-1];
 
 
@@ -72,9 +58,11 @@ int main(int argc, char*argv[])
 
     //delete [] edge_array;
 
+    //This is the TarjanClass object
     TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(&g);
     std::vector<int>* comp_tarjan = tarjan.tarjan_scc();
 
+    //Printing
     /*IndexMap index = get(vertex_index,g);
 
     for (int i = 0; i != comp_tarjan->size(); ++i){

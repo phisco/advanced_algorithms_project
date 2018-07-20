@@ -56,7 +56,8 @@ int main(int, char*[])
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
-    
+
+    //This function takes a graph formatted by graphml fashion from the stdin
     /*Graph g;
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);*/
