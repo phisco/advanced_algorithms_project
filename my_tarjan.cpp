@@ -10,11 +10,11 @@ template <class Num, class Lowpt, class Lowvine, class StackMember, class Ancest
 class TarjanClass {
 
 private:
-    Graph g;
+    Graph* g;
     int n;
     std::vector<int> lowvineVet,
             number,
-            lowptVet;
+            lowptVet, comp;
 
     std::vector<bool> stackmember, ancestorVet;
 
@@ -47,7 +47,7 @@ private:
         //std::cout << get(num, v) << " enters" << std::endl;
         std::pair<vertex_iter, vertex_iter> vp;
         typename graph_traits<Graph>::adjacency_iterator w, ai_end;
-        for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w) {
+        for (boost::tie(w, ai_end) = adjacent_vertices(v, *g); w != ai_end; ++w) {
             //std::cout << get(num, v) << ", lowpt : " << get(lowpt, v) << ", lowvine : " << get(lowvine, v) << std::endl;
             auto nw = get(num, *w);
             auto lptv = get(lowpt, v);
@@ -86,39 +86,41 @@ private:
         put(ancestor, get(num, v), false);
     }
 
-public: TarjanClass(Graph& graph, Component comp) {
+public: TarjanClass(Graph* graph) {
         g=graph;
-        component = comp;
-        n=num_vertices(g);
+        n=num_vertices(*g);
+        comp= *new std::vector<int>(n);
         lowvineVet = *new std::vector<int>(n);
         number = *new std::vector<int>(n);
         lowptVet = *new std::vector<int>(n);
         stackmember = *new std::vector<bool>(n);
         ancestorVet = *new std::vector<bool>(n);
-        num = make_iterator_property_map(number.begin(), get(vertex_index, g));
-        lowpt = make_iterator_property_map(lowptVet.begin(), get(vertex_index, g));
-        lowvine = make_iterator_property_map(lowvineVet.begin(), get(vertex_index, g));
-        sm = make_iterator_property_map(stackmember.begin(), get(vertex_index, g));
-        ancestor = make_iterator_property_map(ancestorVet.begin(), get(vertex_index, g));
-        i = 0;
-        c = 0;
-    }
-
-    int tarjan_scc() {
         for (int i = 0; i < n; i++) {
             stackmember[i] = false;
-            ancestor[i] = false;
+            ancestorVet[i] = false;
         }
+        num = make_iterator_property_map(number.begin(), get(vertex_index, *g));
+        lowpt = make_iterator_property_map(lowptVet.begin(), get(vertex_index, *g));
+        lowvine = make_iterator_property_map(lowvineVet.begin(), get(vertex_index, *g));
+        sm = make_iterator_property_map(stackmember.begin(), get(vertex_index, *g));
+        ancestor = make_iterator_property_map(ancestorVet.begin(), get(vertex_index, *g));
+        component=make_iterator_property_map(comp.begin(), get(vertex_index, *g));
+        i = 0;
+        c = 0;
+
+    }
+
+    std::vector<int>* tarjan_scc() {
         std::pair<vertex_iter, vertex_iter> vp;
         timer::auto_cpu_timer t;
-        for (vp = vertices(g); vp.first != vp.second; ++vp.first) {
+        for (vp = vertices(*g); vp.first != vp.second; ++vp.first) {
             Vertex v = *vp.first;
             if (get(num, v) == 0) {
                 //tarjan(g, v, &i, &c, num, lowpt, lowvine, component, &s, sm, ancestor);
                 tarjan(v);
             }
         }
-        return c;
+        return &comp;
     }
 
 };

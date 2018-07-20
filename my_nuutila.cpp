@@ -9,14 +9,16 @@ using namespace boost;
 template <class Root, class Num, class InComponent>
 class NuutilaClass{
 private:
-    Graph g;
+    Graph* g;
     Root root;
     int i, c;
     Num num;
     InComponent inComponent;
+
     std::stack<Vertex> s; // v*w
     std::vector<int> number;
     std::vector<bool> inComponentVec;
+    std::vector<int> rootVet;
 
     void nuutila(const Vertex& v) {
         i += 1;
@@ -26,7 +28,7 @@ private:
         std::pair<vertex_iter, vertex_iter> vp;
         typename graph_traits<Graph>::adjacency_iterator w, ai_end;
         // iterate over outgoing edges
-        for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
+        for (boost::tie(w, ai_end) = adjacent_vertices(v, *g); w != ai_end; ++w){
 
             if (get(num, *w) == 0){ // if not already visited
                 nuutila(*w);
@@ -54,42 +56,43 @@ private:
     }
 
 public:
-    NuutilaClass(Graph& graph, Root r){
+    NuutilaClass(Graph* graph){
         g=graph;
-        root = r;
-        IndexMap index = get(vertex_index, g);
-        int n = num_vertices(g);
+
+        IndexMap index = get(vertex_index, *g);
+        int n = num_vertices(*g);
+
         number = *new std::vector<int>(n);
         inComponentVec = *new std::vector<bool>(n);
-        num = make_iterator_property_map(number.begin(), index); // v*w
-        inComponent = make_iterator_property_map(inComponentVec.begin(), index); // v
-    }
+        rootVet=*new std::vector<int>(n);
 
-    int nuutila_scc() {
-        for (int i = 0; i < num_vertices(g); i++){
-            inComponent[i] = false;
+        for (int i = 0; i < num_vertices(*g); i++){
+            inComponentVec[i] = false;
         }
 
-        std::pair<vertex_iter, vertex_iter> vp;
-        std::stack<Vertex> s; // v*w
+        num = make_iterator_property_map(number.begin(), index); // v*w
+        inComponent = make_iterator_property_map(inComponentVec.begin(), index); // v
+        root= make_iterator_property_map(rootVet.begin(), get(vertex_index, *g));
 
         // needed counters
-        int i = 0;
-        int c = 0;
+        i = 0;
+        c = 0;
+    }
 
+    std::vector<int>* nuutila_scc() {
+        std::pair<vertex_iter, vertex_iter> vp;
         // initialize the timer
         timer::auto_cpu_timer t;
-
         // iterate over vertices
-        for (vp = vertices(g); vp.first != vp.second; ++vp.first){
+        for (vp = vertices(*g); vp.first != vp.second; ++vp.first){
             Vertex v = *vp.first;
             if (get(num, v) == 0){ // if not already visited
                 nuutila(v);
             }
         }
 
-        // return the number of component found
-        return c;
+        // return the vector of component found
+        return &rootVet;
     }
 
 };

@@ -59,7 +59,7 @@ int main(int argc, char*argv[])
     std::cout << std::endl;*/
 
     typedef std::pair<int, int> Edge;
-    int n= 1000;
+    int n= 10000;
     Edge edge_array[n-1];
 
 
@@ -72,19 +72,13 @@ int main(int argc, char*argv[])
 
     //delete [] edge_array;
 
-    std::vector<int> component(num_vertices(g));
-    for(int i = 0; i<component.size(); i++)
-        component[i]=0;
-    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g,make_iterator_property_map(component.begin(), get(vertex_index, g)));
-    int num_tarjan = tarjan.tarjan_scc();
-
-    std::cout << "Number of components: "<< num_tarjan << std::endl;
-    //std::cout << "Total number of components: " << num << std::endl;
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(&g);
+    std::vector<int>* comp_tarjan = tarjan.tarjan_scc();
 
     IndexMap index = get(vertex_index,g);
 
-    for (int i = 0; i != component.size(); ++i){
-        std::cout << index[i] << " -> " << component[i] << std::endl;
+    for (int i = 0; i != comp_tarjan->size(); ++i){
+        std::cout << index[i] << " -> " << (*comp_tarjan)[i] << std::endl;
     }
     return 0;
 }

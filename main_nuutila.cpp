@@ -57,24 +57,33 @@ int main(int, char*[])
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
     
-     Graph g;
+    /*Graph g;
     dynamic_properties dp;
-    read_graphml(std::cin, g, dp);
+    read_graphml(std::cin, g, dp);*/
 
-    std::cout << "A directed graph:" << std::endl;
-    print_graph(g, get(vertex_index,g));
-    std::cout << std::endl;
+    typedef std::pair<int, int> Edge;
+    int n= 10000;
+    Edge edge_array[n-1];
 
-    std::vector<int> root(num_vertices(g));
-    NuutilaClass<typeInt, typeInt, typeBool> n(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
-    int num = n.nuutila_scc();
 
-    std::cout << "Number of components: "<< num << std::endl;
-
-    IndexMap index = get(vertex_index,g);
-    
-    for (int i = 0; i != root.size(); ++i){
-        std::cout << index[i] << " -> " << index[root[i]] << std::endl;
+    for(int i=0;i<n-1;i++){
+        edge_array[i]=Edge(i,i+1);
     }
+
+    int num_arcs = sizeof(edge_array) / sizeof(Edge);
+    Graph g(edge_array, edge_array + num_arcs, n);
+
+    /*std::cout << "A directed graph:" << std::endl;
+    print_graph(g, get(vertex_index,g));
+    std::cout << std::endl;*/
+
+    NuutilaClass<typeInt, typeInt, typeBool> nuutila(&g);
+    std::vector<int>* root = nuutila.nuutila_scc();
+
+    /*IndexMap index = get(vertex_index,g);
+    
+    for (int i = 0; i != root->size(); ++i){
+        std::cout << index[i] << " -> " << index[(*root)[i]] << std::endl;
+    }*/
     return 0;
 }
