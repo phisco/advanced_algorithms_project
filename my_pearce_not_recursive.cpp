@@ -50,7 +50,7 @@ void beginVisiting(const Vertex v, Stack vs, StackInt is, int*index, Rindex rind
 }
 
 template <class Graph, class Stack, class StackInt, class Rindex, class Root>
-bool beginEdge(Graph g, const Vertex v, int k, out_edge_it it, Stack vs, StackInt is, int* index, Rindex rindex, Root root){
+bool beginEdge(const Graph& g, const Vertex v, int k, out_edge_it it, Stack vs, StackInt is, int* index, Rindex rindex, Root root){
     Vertex w = target(*(it+k),g);
 
     if(get(rindex,w)==0){
@@ -64,7 +64,7 @@ bool beginEdge(Graph g, const Vertex v, int k, out_edge_it it, Stack vs, StackIn
 }
 
 template<class Graph, class Stack, class StackInt, class Rindex, class Root>
-void visitLoop(Graph g, Stack vs, StackInt is, int*index, Stack s, int*c, Rindex rindex, Root root){
+void visitLoop(const Graph& g, Stack vs, StackInt is, int*index, Stack s, int*c, Rindex rindex, Root root){
     Vertex v = vs->top();
     int i = is->top();
     typename graph_traits<Graph>::degree_size_type num_edges;
