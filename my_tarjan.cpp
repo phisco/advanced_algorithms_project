@@ -28,23 +28,6 @@ private:
     int i;
     int c;
 
-public: TarjanClass(Graph& graph) {
-        g=graph;
-        n=num_vertices(g);
-        lowvineVet = *new std::vector<int>(n);
-        number = *new std::vector<int>(n);
-        lowptVet = *new std::vector<int>(n);
-        stackmember = *new std::vector<bool>(n);
-        ancestorVet = *new std::vector<bool>(n);
-        num = make_iterator_property_map(number.begin(), get(vertex_index, g));
-        lowpt = make_iterator_property_map(lowptVet.begin(), get(vertex_index, g));
-        lowvine = make_iterator_property_map(lowvineVet.begin(), get(vertex_index, g));
-        sm = make_iterator_property_map(stackmember.begin(), get(vertex_index, g));
-        ancestor = make_iterator_property_map(ancestorVet.begin(), get(vertex_index, g));
-        i = 0;
-        c = 0;
-    }
-
     void tarjan(const Vertex &v) {
         i += 1;
         /*std::cout << "num " << sizeof(num) << std::endl;
@@ -103,8 +86,29 @@ public: TarjanClass(Graph& graph) {
         put(ancestor, get(num, v), false);
     }
 
-//int tarjan_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Component& component, StackMember sm, Ancestor ancestor) {
-    int tarjan_main() {
+public: TarjanClass(Graph& graph, Component comp) {
+        g=graph;
+        component = comp;
+        n=num_vertices(g);
+        lowvineVet = *new std::vector<int>(n);
+        number = *new std::vector<int>(n);
+        lowptVet = *new std::vector<int>(n);
+        stackmember = *new std::vector<bool>(n);
+        ancestorVet = *new std::vector<bool>(n);
+        num = make_iterator_property_map(number.begin(), get(vertex_index, g));
+        lowpt = make_iterator_property_map(lowptVet.begin(), get(vertex_index, g));
+        lowvine = make_iterator_property_map(lowvineVet.begin(), get(vertex_index, g));
+        sm = make_iterator_property_map(stackmember.begin(), get(vertex_index, g));
+        ancestor = make_iterator_property_map(ancestorVet.begin(), get(vertex_index, g));
+        i = 0;
+        c = 0;
+    }
+
+    int tarjan_scc() {
+        for (int i = 0; i < n; i++) {
+            stackmember[i] = false;
+            ancestor[i] = false;
+        }
         std::pair<vertex_iter, vertex_iter> vp;
         timer::auto_cpu_timer t;
         for (vp = vertices(g); vp.first != vp.second; ++vp.first) {
@@ -117,15 +121,4 @@ public: TarjanClass(Graph& graph) {
         return c;
     }
 
-    int tarjan_scc(Component comp) {
-
-        //IndexMap index =  get(vertex_index, g);
-
-        for (int i = 0; i < n; i++) {
-            stackmember[i] = false;
-            ancestor[i] = false;
-        }
-        component = comp;
-        return tarjan_main();
-    }
 };

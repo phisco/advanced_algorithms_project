@@ -75,8 +75,8 @@ int main(int argc, char*argv[])
     std::vector<int> component(num_vertices(g));
     for(int i = 0; i<component.size(); i++)
         component[i]=0;
-    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g);
-    int num_tarjan = tarjan.tarjan_scc(make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g,make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    int num_tarjan = tarjan.tarjan_scc();
 
     std::cout << "Number of components: "<< num_tarjan << std::endl;
     //std::cout << "Total number of components: " << num << std::endl;

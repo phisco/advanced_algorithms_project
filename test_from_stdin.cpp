@@ -92,8 +92,8 @@ int main(int, char*[])
     std::vector<int> component(num_vertices(g));
     for(int i = 0; i<component.size(); i++)
         component[i]=0;
-    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g);
-    int num_tarjan = tarjan.tarjan_scc(make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g,make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    int num_tarjan = tarjan.tarjan_scc();
 
     std::cout << "Nuutila\t\t" << std::flush;
     std::vector<int> root_nuutila(num_vertices(g));
@@ -101,7 +101,7 @@ int main(int, char*[])
         root_nuutila[i]=0;
     NuutilaClass<typeInt, typeInt, typeBool> n(g, make_iterator_property_map(root_nuutila.begin(), get(vertex_index, g)));
     int num_nuutila = n.nuutila_scc();
-    root_nuutila= correct_nuutila_root(root_nuutila);
+    root_nuutila = correct_nuutila_root(root_nuutila);
 
     std::cout << "Pearce\t\t" << std::flush;
     std::vector<int> rindex(num_vertices(g));

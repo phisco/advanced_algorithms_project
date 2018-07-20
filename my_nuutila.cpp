@@ -17,19 +17,8 @@ private:
     std::stack<Vertex> s; // v*w
     std::vector<int> number;
     std::vector<bool> inComponentVec;
-public:
-    NuutilaClass(Graph& graph, Root r){
-        g=graph;
-        root = r;
-        IndexMap index = get(vertex_index, g);
-        int n = num_vertices(g);
-        number = *new std::vector<int>(n);
-        inComponentVec = *new std::vector<bool>(n);
-        num = make_iterator_property_map(number.begin(), index); // v*w
-        inComponent = make_iterator_property_map(inComponentVec.begin(), index); // v
-    }
 
-    void nuutila(const Vertex v) {
+    void nuutila(const Vertex& v) {
         i += 1;
         put(root, v, v);
         put(inComponent, v, false);
@@ -64,7 +53,23 @@ public:
 
     }
 
-    int nuutila_main() {
+public:
+    NuutilaClass(Graph& graph, Root r){
+        g=graph;
+        root = r;
+        IndexMap index = get(vertex_index, g);
+        int n = num_vertices(g);
+        number = *new std::vector<int>(n);
+        inComponentVec = *new std::vector<bool>(n);
+        num = make_iterator_property_map(number.begin(), index); // v*w
+        inComponent = make_iterator_property_map(inComponentVec.begin(), index); // v
+    }
+
+    int nuutila_scc() {
+        for (int i = 0; i < num_vertices(g); i++){
+            inComponent[i] = false;
+        }
+
         std::pair<vertex_iter, vertex_iter> vp;
         std::stack<Vertex> s; // v*w
 
@@ -85,20 +90,6 @@ public:
 
         // return the number of component found
         return c;
-    }
-
-    int nuutila_scc()
-    {
-
-        // initialize needed structures
-
-
-        for (int i = 0; i < num_vertices(g); i++){
-            inComponent[i] = false;
-        }
-
-        return nuutila_main();
-
     }
 
 };

@@ -13,19 +13,11 @@ private:
     int index, c;
     Rindex rindex;
     std::stack<Vertex> s; // v*w
-public:
-    PearceClass(const Graph& graph, Rindex r){
-        g = graph;
-        rindex = r;
-        IndexMap index = get(vertex_index, g);
-    }
 
     void pearce(const Vertex& v) {
         put(rindex, v, index);
         bool root = true;
         index += 1;
-
-
         typename graph_traits<Graph>::adjacency_iterator w, ai_end;
         // iterate over the outgoing edges
         for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
@@ -59,6 +51,14 @@ public:
         }
         // std::cout << "exit : " << get(num, v) << std::endl;
     }
+
+public:
+    PearceClass(const Graph& graph, Rindex r){
+        g = graph;
+        rindex = r;
+        IndexMap index = get(vertex_index, g);
+    }
+
     int pearce_scc() {
         std::pair<vertex_iter, vertex_iter> vp;
         // the needed counters
