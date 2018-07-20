@@ -66,7 +66,8 @@ int main(int, char*[])
     std::cout << std::endl;
 
     std::vector<int> root(num_vertices(g));
-    int num = nuutila_scc(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
+    NuutilaClass<typeInt, typeInt, typeBool> n(g, make_iterator_property_map(root.begin(), get(vertex_index, g)));
+    int num = n.nuutila_scc();
 
     std::cout << "Number of components: "<< num << std::endl;
 

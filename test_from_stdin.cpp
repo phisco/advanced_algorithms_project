@@ -99,7 +99,8 @@ int main(int, char*[])
     std::vector<int> root_nuutila(num_vertices(g));
     for(int i = 0; i<root_nuutila.size(); i++)
         root_nuutila[i]=0;
-    int num_nuutila = nuutila_scc(g, make_iterator_property_map(root_nuutila.begin(), get(vertex_index, g)));
+    NuutilaClass<typeInt, typeInt, typeBool> n(g, make_iterator_property_map(root_nuutila.begin(), get(vertex_index, g)));
+    int num_nuutila = n.nuutila_scc();
     root_nuutila= correct_nuutila_root(root_nuutila);
 
     std::cout << "Pearce\t\t" << std::flush;
