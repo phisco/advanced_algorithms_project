@@ -6,7 +6,7 @@
 
 using namespace boost;
 
-template <class Num, class Lowpt, class Lowvine, class StackMember, class Ancestor>
+template <class Num, class Lowpt, class Lowvine, class StackMember, class Ancestor, class Component>
 class TarjanClass {
 
 private:
@@ -19,7 +19,7 @@ private:
     std::vector<bool> stackmember, ancestorVet;
 
     std::stack<Vertex> s; // v*w
-
+    Component component;
     Lowpt lowpt;
     Lowvine lowvine;
     Num num;
@@ -28,7 +28,7 @@ private:
     int i;
     int c;
 
-public: TarjanClass(Graph graph) {
+public: TarjanClass(Graph& graph) {
         g=graph;
         n=num_vertices(g);
         lowvineVet.resize(n);
@@ -44,9 +44,8 @@ public: TarjanClass(Graph graph) {
         i = 0;
         c = 0;
     }
-    template<class Component>
-//void tarjan(const Graph& g, const Vertex& v, int* i, int* c, Num& num, Lowpt& lowpt, Lowvine& lowvine, Component& component, Stack s, StackMember& sm, Ancestor& ancestor) {
-    void tarjan(const Vertex &v, Component component) {
+
+    void tarjan(const Vertex &v) {
         i += 1;
         /*std::cout << "num " << sizeof(num) << std::endl;
         std::cout << "lowpt " << sizeof(lowpt) << std::endl;
@@ -73,7 +72,7 @@ public: TarjanClass(Graph graph) {
             if (nw == 0) {
                 //std::cout << "cond 1 : " << get(num, v) << " " <<  *i+1 << std::endl;
                 //tarjan(g, *w, i, c, num, lowpt, lowvine, component, s, sm, ancestor);
-                tarjan(*w, component);
+                tarjan(*w);
                 auto lptw = get(lowpt, *w);
                 put(lowpt, v, lptw > lptv ? lptv : lptw);
                 auto lvinew = get(lowvine, *w);
@@ -104,24 +103,21 @@ public: TarjanClass(Graph graph) {
         put(ancestor, get(num, v), false);
     }
 
-    template<class Component>
 //int tarjan_main(const Graph& g, Num num, Lowpt lowpt, Lowvine lowvine, Component& component, StackMember sm, Ancestor ancestor) {
-    int tarjan_main(Component component) {
-        std::cout << "num " << n;
+    int tarjan_main() {
         std::pair<vertex_iter, vertex_iter> vp;
         timer::auto_cpu_timer t;
         for (vp = vertices(g); vp.first != vp.second; ++vp.first) {
             Vertex v = *vp.first;
             if (get(num, v) == 0) {
                 //tarjan(g, v, &i, &c, num, lowpt, lowvine, component, &s, sm, ancestor);
-                tarjan(v, component);
+                tarjan(v);
             }
         }
         return c;
     }
 
-    template<class Component>
-    int tarjan_scc(Component component) {
+    int tarjan_scc(Component comp) {
 
         //IndexMap index =  get(vertex_index, g);
 
@@ -129,15 +125,7 @@ public: TarjanClass(Graph graph) {
             stackmember[i] = false;
             ancestor[i] = false;
         }
-        std::cout << "component " << sizeof(component) << std::endl;
-
-        /*return tarjan_main(g,
-                           num, // v*w
-                          lowpt,  // v*w
-                           make_iterator_property_map(lowvine.begin(), index), // v*w
-                           component, // v*w
-                           make_iterator_property_map(ancestor.begin(), index), // v
-                           make_iterator_property_map(stackmember.begin(), index)); //v*/
-        return tarjan_main(component);
+        component = comp;
+        return tarjan_main();
     }
 };
