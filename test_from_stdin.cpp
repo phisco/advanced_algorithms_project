@@ -87,36 +87,24 @@ int main(int, char*[])
                                     color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
                                     discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
 
-    std::cout << "Tarjan\t\t" << std::flush;
-    std::vector<int> component1(num_vertices(g));
-    for(int i = 0; i<component1.size(); i++)
-        component1[i]=0;
-    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g,make_iterator_property_map(component1.begin(), get(vertex_index, g)));
-    tarjan.tarjan_scc();
 
     // warm up run
     std::cout << "Tarjan\t\t" << std::flush;
-    std::vector<int> component(num_vertices(g));
-    for(int i = 0; i<component.size(); i++)
-        component[i]=0;
-    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> t(g,make_iterator_property_map(component.begin(), get(vertex_index, g)));
-    int num_tarjan = t.tarjan_scc();
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> t(&g);
+    t.tarjan_scc();
+
+    std::cout << "Tarjan\t\t" << std::flush;
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(&g);
+    std::vector<int>* component = tarjan.tarjan_scc();
 
     std::cout << "Nuutila\t\t" << std::flush;
-    std::vector<int> root_nuutila(num_vertices(g));
-    for(int i = 0; i<root_nuutila.size(); i++)
-        root_nuutila[i]=0;
-    NuutilaClass<typeInt, typeInt, typeBool> n(g, make_iterator_property_map(root_nuutila.begin(), get(vertex_index, g)));
-    int num_nuutila = n.nuutila_scc();
-    root_nuutila = correct_nuutila_root(root_nuutila);
+    NuutilaClass<typeInt, typeInt, typeBool> nuutila(&g);
+    std::vector<int>* root_nuutila = nuutila.nuutila_scc();
 
     std::cout << "Pearce\t\t" << std::flush;
-    std::vector<int> rindex(num_vertices(g));
-    for (int i = 0; i < num_vertices(g); i++){
-        rindex[i] = 0;
-    }
-    PearceClass<typeInt> p(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
-    int num_pearce = p.pearce_scc();
+    PearceClass<typeInt> pearce(&g);
+    std::vector<int>* rindex = pearce.pearce_scc();
+
 
     std::cout << "PearceNR\t\t" << std::flush;
     std::vector<int> rindexNR(num_vertices(g));
@@ -130,8 +118,8 @@ int main(int, char*[])
     */
 
     std::cout << "Components:\t" << num_bgl << std::endl;
-    std::cout << "Correct:\t" << (compare_results(bgl_component, component) && compare_results(bgl_component, root_nuutila) &&
-        compare_results(bgl_component, rindex) && compare_results(bgl_component, rindexNR) /*&&  compare_results(bgl_component, rindex_not_recursive)*/) << std::endl;
+    std::cout << "Correct:\t" << (compare_results(bgl_component, *component) && compare_results(bgl_component, *root_nuutila) &&
+        compare_results(bgl_component, *rindex) && compare_results(bgl_component, rindexNR) /*&&  compare_results(bgl_component, rindex_not_recursive)*/) << std::endl;
 }
 
 
