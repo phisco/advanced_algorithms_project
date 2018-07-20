@@ -92,12 +92,8 @@ int main(int, char*[])
     std::vector<int> component(num_vertices(g));
     for(int i = 0; i<component.size(); i++)
         component[i]=0;
-    tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
-
-    std::cout << "Tarjan\t\t" << std::flush;
-    for(int i = 0; i<component.size(); i++)
-        component[i]=0;
-    int num_tarjan = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g);
+    int num_tarjan = tarjan.tarjan_scc(make_iterator_property_map(component.begin(), get(vertex_index, g)));
 
     std::cout << "Nuutila\t\t" << std::flush;
     std::vector<int> root_nuutila(num_vertices(g));

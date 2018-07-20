@@ -5,6 +5,7 @@ project(untitled)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lboost_graph -lboost_timer -pg")
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O2")
 
 FIND_PACKAGE( Boost 1.65 COMPONENTS graph timer REQUIRED )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )

@@ -21,4 +21,11 @@ typedef graph_traits<adjacency_list<vecS, vecS, directedS> >::vertex_descriptor 
 typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 typedef std::pair<int, int> Edge;
 
+typedef typename boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int> >,
+        boost::vec_adj_list_vertex_id_map<boost::no_property, long unsigned int>, int, int&> typeInt;
+
+typedef typename boost::iterator_property_map<std::_Bit_iterator,
+        boost::vec_adj_list_vertex_id_map<boost::no_property, long unsigned int>, bool, std::_Bit_reference> typeBool;
+
+
 #endif
