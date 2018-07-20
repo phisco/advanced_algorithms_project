@@ -87,13 +87,20 @@ int main(int, char*[])
                                     color_map(make_iterator_property_map(bgl_color.begin(), get(vertex_index, g))).
                                     discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
 
+    std::cout << "Tarjan\t\t" << std::flush;
+    std::vector<int> component1(num_vertices(g));
+    for(int i = 0; i<component1.size(); i++)
+        component1[i]=0;
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g,make_iterator_property_map(component1.begin(), get(vertex_index, g)));
+    tarjan.tarjan_scc();
+
     // warm up run
     std::cout << "Tarjan\t\t" << std::flush;
     std::vector<int> component(num_vertices(g));
     for(int i = 0; i<component.size(); i++)
         component[i]=0;
-    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(g,make_iterator_property_map(component.begin(), get(vertex_index, g)));
-    int num_tarjan = tarjan.tarjan_scc();
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> t(g,make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    int num_tarjan = t.tarjan_scc();
 
     std::cout << "Nuutila\t\t" << std::flush;
     std::vector<int> root_nuutila(num_vertices(g));
