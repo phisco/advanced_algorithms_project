@@ -47,13 +47,8 @@ int main(int, char*[]){
     print_graph(g, get(vertex_index, g));
     std::cout << std::endl;
 
-    std::vector<Vertex> root(num_vertices(g));
-    std::vector<bool> inComp(num_vertices(g));
-    std::vector<std::set<Vertex>*> sets(num_vertices(g));
-
-    transitive_closure_scc(g,  make_iterator_property_map(root.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(inComp.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(sets.begin(), get(vertex_index,g)),sets);
+    TransitiveClosure <
+    transitive_closure_scc(&g);
 
 
     //used only to compare results
