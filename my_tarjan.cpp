@@ -31,11 +31,11 @@ private:
 public: TarjanClass(Graph& graph) {
         g=graph;
         n=num_vertices(g);
-        lowvineVet.resize(n);
-        number.resize(n);
-        lowptVet.resize(n);
-        stackmember.resize(n);
-        ancestorVet.resize(n);
+        lowvineVet = *new std::vector<int>(n);
+        number = *new std::vector<int>(n);
+        lowptVet = *new std::vector<int>(n);
+        stackmember = *new std::vector<bool>(n);
+        ancestorVet = *new std::vector<bool>(n);
         num = make_iterator_property_map(number.begin(), get(vertex_index, g));
         lowpt = make_iterator_property_map(lowptVet.begin(), get(vertex_index, g));
         lowvine = make_iterator_property_map(lowvineVet.begin(), get(vertex_index, g));
