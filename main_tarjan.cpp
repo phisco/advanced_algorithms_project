@@ -9,6 +9,12 @@
 
 using namespace boost;
 
+typedef typename boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int> >,
+        boost::vec_adj_list_vertex_id_map<boost::no_property, long unsigned int>, int, int&> typeInt;
+
+typedef typename boost::iterator_property_map<std::_Bit_iterator,
+        boost::vec_adj_list_vertex_id_map<boost::no_property, long unsigned int>, bool, std::_Bit_reference> typeBool;
+
 int main(int argc, char*argv[])
 {
 
@@ -79,7 +85,8 @@ int main(int argc, char*argv[])
     //delete [] edge_array;
 
     std::vector<int> component(num_vertices(g));
-    int num_tarjan = tarjan_scc(g, make_iterator_property_map(component.begin(), get(vertex_index, g)));
+    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool> tarjan(g);
+    int num_tarjan = tarjan.tarjan_scc(make_iterator_property_map(component.begin(), get(vertex_index, g)));
 
     std::cout << "Number of components: "<< num_tarjan << std::endl;
     //std::cout << "Total number of components: " << num << std::endl;
