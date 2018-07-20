@@ -9,9 +9,10 @@ using namespace boost;
 template<class Rindex>
 class PearceClass{
 private:
-    Graph g;
+    Graph* g;
     int index, c;
     Rindex rindex;
+    std::vector<int> rind;
     std::stack<Vertex> s; // v*w
 
     void pearce(const Vertex& v) {
@@ -20,7 +21,7 @@ private:
         index += 1;
         typename graph_traits<Graph>::adjacency_iterator w, ai_end;
         // iterate over the outgoing edges
-        for (boost::tie(w, ai_end) = adjacent_vertices(v, g); w != ai_end; ++w){
+        for (boost::tie(w, ai_end) = adjacent_vertices(v, *g); w != ai_end; ++w){
             if (get(rindex, *w) == 0){ // if not already been visited
 
                 pearce(*w);
@@ -37,8 +38,6 @@ private:
             // pop from stack vertices in the component
             while(!s.empty() && get(rindex, s.top()) >= get(rindex, v)){
                 Vertex w = s.top();
-
-
                 s.pop();
                 put(rindex, w, c);
                 index -= 1;
@@ -53,26 +52,30 @@ private:
     }
 
 public:
-    PearceClass(const Graph& graph, Rindex r){
+    PearceClass(Graph* graph){
         g = graph;
-        rindex = r;
-        IndexMap index = get(vertex_index, g);
-    }
+        int n=num_vertices(*g);
 
-    int pearce_scc() {
-        std::pair<vertex_iter, vertex_iter> vp;
+        rind=*new std::vector<int>(n);
+        rindex=make_iterator_property_map(rind.begin(), get(vertex_index, *g));
+
         // the needed counters
         index = 1;
-        c = num_vertices(g) - 1;
+        c = n - 1;
+    }
+
+    std::vector<int>* pearce_scc() {
+        std::pair<vertex_iter, vertex_iter> vp;
         timer::auto_cpu_timer t; // initialize the timer
         // iterate over vertices
-        for (vp = vertices(g); vp.first != vp.second; ++vp.first){
+        for (vp = vertices(*g); vp.first != vp.second; ++vp.first){
             Vertex v = *vp.first;
             if (get(rindex, v) == 0){ // if not already visited
                 pearce(v);
             }
         }
-        return num_vertices(g) - 1 - c;
+
+        return &rind;
     }
 
 };
