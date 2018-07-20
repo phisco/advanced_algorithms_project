@@ -1,4 +1,3 @@
-
 #include "my_tarjan.cpp"
 #include <boost/graph/erdos_renyi_generator.hpp>
 #include <boost/random/linear_congruential.hpp>

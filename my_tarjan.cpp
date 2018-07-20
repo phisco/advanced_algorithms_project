@@ -1,7 +1,3 @@
-//
-// Created by phisco on 6/23/18.
-//
-
 #include "include_and_types.cpp"
 
 using namespace boost;

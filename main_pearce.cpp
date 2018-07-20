@@ -1,7 +1,3 @@
-//
-// Created by phisco on 6/23/18.
-//
-
 #include "my_pearce.cpp"
 #include <boost/graph/erdos_renyi_generator.hpp>
 #include <boost/random/linear_congruential.hpp>
