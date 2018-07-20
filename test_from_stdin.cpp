@@ -105,9 +105,11 @@ int main(int, char*[])
 
     std::cout << "Pearce\t\t" << std::flush;
     std::vector<int> rindex(num_vertices(g));
-    for(int i = 0; i<rindex.size(); i++)
-        rindex[i]=0;
-    int num_pearce = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
+    for (int i = 0; i < num_vertices(g); i++){
+        rindex[i] = 0;
+    }
+    PearceClass<typeInt> p(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
+    int num_pearce = p.pearce_scc();
 
     std::cout << "PearceNR\t\t" << std::flush;
     std::vector<int> rindexNR(num_vertices(g));

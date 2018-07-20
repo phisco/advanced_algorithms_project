@@ -54,7 +54,11 @@ int main(int, char*[])
     std::cout << std::endl;
 
     std::vector<int> rindex(num_vertices(g));
-    int num = pearce_scc(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
+    for (int i = 0; i < num_vertices(g); i++){
+        rindex[i] = 0;
+    }
+    PearceClass<typeInt> p(g, make_iterator_property_map(rindex.begin(), get(vertex_index, g)));
+    int num = p.pearce_scc();
 
 
     std::cout << "Number of components: "<< num << std::endl;
