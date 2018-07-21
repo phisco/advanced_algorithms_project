@@ -1,7 +1,3 @@
-//
-// Created by phisco on 6/23/18.
-//
-
 #include "my_nuutila.cpp"
 #include <boost/graph/erdos_renyi_generator.hpp>
 #include <boost/random/linear_congruential.hpp>
@@ -56,13 +52,14 @@ int main(int, char*[])
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
-    
+
+    //This function takes a graph formatted by graphml fashion from the stdin
     /*Graph g;
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);*/
 
     typedef std::pair<int, int> Edge;
-    int n= 10000;
+    int n= 100000;
     Edge edge_array[n-1];
 
 

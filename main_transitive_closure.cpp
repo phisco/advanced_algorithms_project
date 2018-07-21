@@ -14,31 +14,25 @@
 
 typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
 
+//Ad-hoc typedef interator_property_map types
+typedef boost::iterator_property_map<__gnu_cxx::__normal_iterator<long unsigned int*, std::vector<long unsigned int> >,
+        boost::vec_adj_list_vertex_id_map<boost::no_property, long unsigned int>,
+                long unsigned int, long unsigned int&> typeVertex;
+
+typedef boost::iterator_property_map<__gnu_cxx::__normal_iterator<std::set<long unsigned int>**,
+        std::vector<std::set<long unsigned int>*> >,
+        boost::vec_adj_list_vertex_id_map<boost::no_property, long unsigned int>, std::set<long unsigned int>*,
+                std::set<long unsigned int>*&> typeSetVertex;
 
 using namespace std;
 
 
 int main(int, char*[]){
-    /*enum { A, B, C, D, E, F, G, H, I, N };
-    const int num_nodes = N;
-    const char* name = "ABCDEFGHI";
-
-    // writing out the edges in the graph
-    typedef std::pair<int, int> Edge;
-    Edge edge_array[] =
-            { Edge(A,B), Edge(B,A), Edge(A,C), Edge(C,A), Edge(B,D), Edge(C,D),
-              Edge(E,C), Edge(E,F), Edge(F,D), Edge(D,F), Edge(E,H), Edge(H,F), Edge(H,G), Edge(G,E),
-              Edge(I,G), Edge(I,H), Edge(I,I)};
-    const int num_edges = sizeof(edge_array)/sizeof(edge_array[0]);
-
-
-    int num_arcs = sizeof(edge_array) / sizeof(Edge);
-    Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
-
     //for debugging purpouses
-    //std::ifstream in("/home/emanuele/Scrivania/advanced_algorithms_project/graphs/6_0.1_3.xml");
-    //std::cin.rdbuf(in.rdbuf());
+    /*std::ifstream in("/home/emanuele/Scrivania/advanced_algorithms_project/graphs/6_0.2_6.xml");
+    std::cin.rdbuf(in.rdbuf());*/
 
+    //Reading graph from stdin
     Graph g;
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);
@@ -47,16 +41,11 @@ int main(int, char*[]){
     print_graph(g, get(vertex_index, g));
     std::cout << std::endl;
 
-    std::vector<Vertex> root(num_vertices(g));
-    std::vector<bool> inComp(num_vertices(g));
-    std::vector<std::set<Vertex>*> sets(num_vertices(g));
+    //Declaration of TransitiveClosure object
+    TransitiveClosure <typeVertex, typeBool, typeInt, typeSetVertex> transitive_cl(&g);
+    transitive_cl.transitive_closure_scc();
 
-    transitive_closure_scc(g,  make_iterator_property_map(root.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(inComp.begin(), get(vertex_index,g)),
-                           make_iterator_property_map(sets.begin(), get(vertex_index,g)),sets);
-
-
-    //used only to compare results
+    //used only to compare results. This applies the built-in function of Boost for applying transitive closure
     std::cout << "BGL"<<std::endl;
     Graph gt;
 
