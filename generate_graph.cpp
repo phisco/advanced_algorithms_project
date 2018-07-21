@@ -27,7 +27,7 @@ int main(int argc,char* argv[])
     } else return 1;
 
     G g(ERGen(gen, n, p), ERGen(), n);
-    write_graphml(std::cout, g, dp, true);
+    boost::write_graphml(cout, g, dp, true);
 
     return 0;
 }

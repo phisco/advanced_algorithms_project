@@ -57,7 +57,6 @@ std::vector<int> correct_nuutila_root(std::vector<int> vec){
     return vec;
 }
 
-
 int main(int, char*[])
 {
     Graph g;
