@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 if [ $# != 6 ]
 then
-    echo "help: generate_graph.sh root_dir_graphs_files min_nodes step max_nodes step_edges
-    max_edges"
+    echo "help: generate_graph.sh root_dir min_nodes step max_nodes step_edges max_edges"
+    echo "script to generate graphs inside a root_dir (created if not existing)"
+    echo "have to be specified: min, step, max number of nodes desired, step and max number of edges"
+    echo "min number of edges is always 0"
     exit 1
 fi
 g++ -O2 -lboost_graph -lboost_timer generate_graph.cpp -o generate_graph.out
