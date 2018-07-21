@@ -28,6 +28,7 @@ using namespace boost;
 
 typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
 
+// Utility function to check if the results of the various algorithms are correct
 template <class Result1, class Result2>
 bool compare_results(const Result1 r1, const Result2 r2){
     if (r1.size() != r2.size())
@@ -72,12 +73,17 @@ std::vector<int> correct_nuutila_root(std::vector<int> vec){
     }
     return vec;
 }
+
+
 int main(int, char*[])
 {
     Graph g;
     dynamic_properties dp;
+    // read graph from stdin
     read_graphml(std::cin, g, dp);
 
+
+    // the boost graph library implementation, used to check correctness of the results
     std::vector<int> bgl_component(num_vertices(g)), discover_time(num_vertices(g));
     std::vector<default_color_type> bgl_color(num_vertices(g));
     std::vector<Vertex> bgl_root(num_vertices(g));
@@ -89,37 +95,35 @@ int main(int, char*[])
 
 
     // warm up run
-    std::cout << "Tarjan\t\t" << std::flush;
+    std::cout << "Dirty\t\t" << std::flush;
     TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> t(&g);
     t.tarjan_scc();
 
+    // Tarjan's algorithm over the given graph
     std::cout << "Tarjan\t\t" << std::flush;
     TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(&g);
     std::vector<int>* component = tarjan.tarjan_scc();
 
+    // Nuutila's algorithm over the given graph
     std::cout << "Nuutila\t\t" << std::flush;
     NuutilaClass<typeInt, typeInt, typeBool> nuutila(&g);
     std::vector<int>* root_nuutila = nuutila.nuutila_scc();
 
+    // Pearce's recursive algorithm over the given graph
     std::cout << "Pearce\t\t" << std::flush;
     PearceClass<typeInt> pearce(&g);
     std::vector<int>* rindex = pearce.pearce_scc();
 
-
+    // Pearce's non recursive algorithm over the given graph
     std::cout << "PearceNR\t\t" << std::flush;
-    std::vector<int> rindexNR(num_vertices(g));
-    for(int i = 0; i<rindexNR.size(); i++)
-        rindexNR[i]=0;
-    int num_pearce_nr = pearce_not_recursive_scc(g, make_iterator_property_map(rindexNR.begin(), get(vertex_index, g)));
+    PearceNR <typeBool, typeInt> pearcenr(&g);
+    std::vector<int>* rindexNR = pearcenr.pearce_not_recursive_scc();
 
-    /*std::cout << "Pearce_NR\t" << std::flush;
-    std::vector<int> rindex_not_recursive(num_vertices(g));
-    int num_pearce_not_recursive = pearce_not_recursive_scc(g, make_iterator_property_map(rindex_not_recursive.begin(), get(vertex_index, g)));
-    */
-
+    // Print the number of components returned by the bgl implementation
     std::cout << "Components:\t" << num_bgl << std::endl;
+    // check correctness of the results
     std::cout << "Correct:\t" << (compare_results(bgl_component, *component) && compare_results(bgl_component, *root_nuutila) &&
-        compare_results(bgl_component, *rindex) && compare_results(bgl_component, rindexNR) /*&&  compare_results(bgl_component, rindex_not_recursive)*/) << std::endl;
+        compare_results(bgl_component, *rindex) && compare_results(bgl_component, *rindexNR)) << std::endl;
 }
 
 
