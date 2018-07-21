@@ -1,18 +1,6 @@
 
 #include <boost/property_map/dynamic_property_map.hpp>
-#include <boost/config.hpp>
 #include <boost/graph/graphml.hpp>
-
-#include <boost/timer/timer.hpp>
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <boost/graph/strong_components.hpp>
-#include <boost/graph/adjacency_list.hpp>
-#include <boost/graph/graph_utility.hpp>
-#include <boost/config.hpp>
-#include <boost/graph/graph_traits.hpp>
-#include <boost/property_map/property_map.hpp>
 
 #include "include_and_types.cpp"
 #include "my_pearce.cpp"
@@ -20,13 +8,8 @@
 #include "my_tarjan.cpp"
 #include "my_pearce_not_recursive.cpp"
 
-
-#include <boost/graph/erdos_renyi_generator.hpp>
-#include <boost/random/linear_congruential.hpp>
-
 using namespace boost;
 
-typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
 
 // Utility function to check if the results of the various algorithms are correct
 template <class Result1, class Result2>
