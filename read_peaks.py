@@ -6,5 +6,11 @@ with open("res.txt", "r") as fr:
         i=0
         res = []
         while i < len(lines):
-            fw.write(",".join(lines[i].split(".")[-1].strip().split("_"))+","+str(int(lines[i+1])+int(lines[i+3]))+"\n")
+            l = lines[i:i+4]
+            l = [d.strip() for d in l]
+            print(l)
+            heap = [x for x in l if x.startswith("mem_heap_B")][0].split("=")[-1]
+            stack = [x for x in l if x.startswith("mem_stacks_B")][0].split("=")[-1]
+
+            fw.write(",".join(lines[i].split(".")[-1].strip().split("_"))+","+str(int(heap)+int(stack))+"\n")
             i+=4
