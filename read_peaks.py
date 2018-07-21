@@ -1,10 +1,10 @@
 with open("res.txt", "r") as fr:
-    with open("res.csv", "a") as fw:
+    with open("res.csv", "w") as fw:
         lines = []
         for line in fr:
             lines.append(line)
         i=0
         res = []
         while i < len(lines):
-            fw.write(str(int(lines[i])+int(lines[i+2]))+"\n")
-            i+=3
+            fw.write(",".join(lines[i].split(".")[-1].strip().split("_"))+","+str(int(lines[i+1])+int(lines[i+3]))+"\n")
+            i+=4
