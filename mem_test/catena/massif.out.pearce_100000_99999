@@ -1,0 +1,991 @@
+desc: --massif-out-file=massif.out.pearce --threshold=0.1
+cmd: ../../../cmake-build-debug/pearce 100000
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=2408683
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=2531110
+mem_heap_B=72804
+mem_heap_extra_B=52
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=3832296
+mem_heap_B=3272804
+mem_heap_extra_B=60
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=4632356
+mem_heap_B=3272805
+mem_heap_extra_B=83
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=5110735
+mem_heap_B=3324604
+mem_heap_extra_B=94540
+mem_stacks_B=0
+heap_tree=detailed
+n4: 3324604 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n1: 48752 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 48752 0x10962B: main (vector.tcc:105)
+ n0: 3148 in 3 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=6
+#-----------
+time=5762285
+mem_heap_B=3395154
+mem_heap_extra_B=223190
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3395154 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 115152 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 115152 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 7198 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=7
+#-----------
+time=6413835
+mem_heap_B=3465704
+mem_heap_extra_B=351840
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3465704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 181552 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 181552 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 11348 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=8
+#-----------
+time=6861285
+mem_heap_B=3514154
+mem_heap_extra_B=440190
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3514154 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 227152 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 227152 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 14198 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=9
+#-----------
+time=7481435
+mem_heap_B=3581304
+mem_heap_extra_B=562640
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3581304 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 290352 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 290352 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 18148 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=10
+#-----------
+time=7858235
+mem_heap_B=3622104
+mem_heap_extra_B=637040
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3622104 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 328752 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 328752 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 20548 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=11
+#-----------
+time=8274285
+mem_heap_B=3667154
+mem_heap_extra_B=719190
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3667154 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 371152 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 371152 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 23198 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=12
+#-----------
+time=8792385
+mem_heap_B=3723254
+mem_heap_extra_B=821490
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3723254 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 423952 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 423952 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 26498 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=13
+#-----------
+time=9294785
+mem_heap_B=3777654
+mem_heap_extra_B=920690
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=9797185
+mem_heap_B=3832054
+mem_heap_extra_B=1019890
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=10299585
+mem_heap_B=3886454
+mem_heap_extra_B=1119090
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=10801985
+mem_heap_B=3940854
+mem_heap_extra_B=1218290
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=11304385
+mem_heap_B=3995254
+mem_heap_extra_B=1317490
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3995254 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 679952 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 679952 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 42498 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=18
+#-----------
+time=11806785
+mem_heap_B=4049654
+mem_heap_extra_B=1416690
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=12177305
+mem_heap_B=4089774
+mem_heap_extra_B=1489850
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=12667145
+mem_heap_B=4142814
+mem_heap_extra_B=1586570
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=13156985
+mem_heap_B=4195854
+mem_heap_extra_B=1683290
+mem_stacks_B=0
+heap_tree=detailed
+n5: 4195854 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 868752 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 868752 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 54298 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=22
+#-----------
+time=13646825
+mem_heap_B=4248894
+mem_heap_extra_B=1780010
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=14136665
+mem_heap_B=4301934
+mem_heap_extra_B=1876730
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=14626505
+mem_heap_B=4354974
+mem_heap_extra_B=1973450
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=15116345
+mem_heap_B=4408014
+mem_heap_extra_B=2070170
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=15606185
+mem_heap_B=4461054
+mem_heap_extra_B=2166890
+mem_stacks_B=0
+heap_tree=detailed
+n5: 4461054 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 1118352 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 1118352 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 69898 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=27
+#-----------
+time=16096025
+mem_heap_B=4514094
+mem_heap_extra_B=2263610
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=16585865
+mem_heap_B=4567134
+mem_heap_extra_B=2360330
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=17075705
+mem_heap_B=4620174
+mem_heap_extra_B=2457050
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=17565545
+mem_heap_B=4673214
+mem_heap_extra_B=2553770
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=18055385
+mem_heap_B=4726254
+mem_heap_extra_B=2650490
+mem_stacks_B=0
+heap_tree=detailed
+n5: 4726254 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 1367952 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 1367952 0x10962B: main (vector.tcc:105)
+ n0: 85498 0x1090CF: main (adjacency_list.hpp:304)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=32
+#-----------
+time=18545225
+mem_heap_B=4779294
+mem_heap_extra_B=2747210
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=19035065
+mem_heap_B=4832334
+mem_heap_extra_B=2843930
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=19524905
+mem_heap_B=4885374
+mem_heap_extra_B=2940650
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=20014745
+mem_heap_B=4938414
+mem_heap_extra_B=3037370
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=20738522
+mem_heap_B=5373414
+mem_heap_extra_B=3100098
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=27777823
+mem_heap_B=5374438
+mem_heap_extra_B=3100106
+mem_stacks_B=0
+heap_tree=detailed
+n6: 5374438 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 1599984 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 1599984 0x10962B: main (vector.tcc:105)
+ n0: 400000 0x109C18: main (new_allocator.h:111)
+ n0: 99999 0x1090CF: main (adjacency_list.hpp:304)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 1751 in 7 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=38
+#-----------
+time=27816204
+mem_heap_B=5374438
+mem_heap_extra_B=3100106
+mem_stacks_B=0
+heap_tree=peak
+n6: 5374438 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 1599984 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 1599984 0x10962B: main (vector.tcc:105)
+ n0: 400000 0x109C18: main (new_allocator.h:111)
+ n0: 99999 0x1090CF: main (adjacency_list.hpp:304)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 1751 in 7 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=39
+#-----------
+time=28183520
+mem_heap_B=4887127
+mem_heap_extra_B=2941945
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=28673264
+mem_heap_B=4771493
+mem_heap_extra_B=2731083
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=29163008
+mem_heap_B=4655859
+mem_heap_extra_B=2520221
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=29652752
+mem_heap_B=4540225
+mem_heap_extra_B=2309359
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=30142496
+mem_heap_B=4424591
+mem_heap_extra_B=2098497
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=30632240
+mem_heap_B=4308957
+mem_heap_extra_B=1887635
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=31121984
+mem_heap_B=4193323
+mem_heap_extra_B=1676773
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=31674152
+mem_heap_B=4062950
+mem_heap_extra_B=1439034
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=32288744
+mem_heap_B=3917838
+mem_heap_extra_B=1174418
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=32903336
+mem_heap_B=3772726
+mem_heap_extra_B=909802
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=33287456
+mem_heap_B=3682031
+mem_heap_extra_B=744417
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=33325866
+mem_heap_B=3672954
+mem_heap_extra_B=727886
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3672954 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 375648 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 375648 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 23478 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 1124 in 8 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=51
+#-----------
+time=33364280
+mem_heap_B=3663892
+mem_heap_extra_B=711340
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=33402690
+mem_heap_B=3654815
+mem_heap_extra_B=694809
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=33441104
+mem_heap_B=3645753
+mem_heap_extra_B=678263
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=33479514
+mem_heap_B=3636676
+mem_heap_extra_B=661732
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=33517928
+mem_heap_B=3627614
+mem_heap_extra_B=645186
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=33556338
+mem_heap_B=3618537
+mem_heap_extra_B=628655
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=33594752
+mem_heap_B=3609475
+mem_heap_extra_B=612109
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=33633162
+mem_heap_B=3600398
+mem_heap_extra_B=595578
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=33671576
+mem_heap_B=3591336
+mem_heap_extra_B=579032
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=33709986
+mem_heap_B=3582259
+mem_heap_extra_B=562501
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3582259 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 290288 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 290288 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 18143 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 1124 in 8 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=61
+#-----------
+time=33748400
+mem_heap_B=3573197
+mem_heap_extra_B=545955
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=33786810
+mem_heap_B=3564120
+mem_heap_extra_B=529424
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=33825224
+mem_heap_B=3555058
+mem_heap_extra_B=512878
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=33863634
+mem_heap_B=3545981
+mem_heap_extra_B=496347
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=33902048
+mem_heap_B=3536919
+mem_heap_extra_B=479801
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=33940458
+mem_heap_B=3527842
+mem_heap_extra_B=463270
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=33978872
+mem_heap_B=3518780
+mem_heap_extra_B=446724
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=34017282
+mem_heap_B=3509703
+mem_heap_extra_B=430193
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=34055696
+mem_heap_B=3500641
+mem_heap_extra_B=413647
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=34094106
+mem_heap_B=3491564
+mem_heap_extra_B=397116
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3491564 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 204928 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 204928 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 12808 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 1124 in 8 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=71
+#-----------
+time=34132520
+mem_heap_B=3482502
+mem_heap_extra_B=380570
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=34170930
+mem_heap_B=3473425
+mem_heap_extra_B=364039
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=34209344
+mem_heap_B=3464363
+mem_heap_extra_B=347493
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=34247754
+mem_heap_B=3455286
+mem_heap_extra_B=330962
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=34286168
+mem_heap_B=3446224
+mem_heap_extra_B=314416
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=34324578
+mem_heap_B=3437147
+mem_heap_extra_B=297885
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=34362992
+mem_heap_B=3428085
+mem_heap_extra_B=281339
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=34401402
+mem_heap_B=3419008
+mem_heap_extra_B=264808
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=34439816
+mem_heap_B=3409946
+mem_heap_extra_B=248262
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=34478226
+mem_heap_B=3400869
+mem_heap_extra_B=231731
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3400869 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 119568 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 119568 0x10962B: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n0: 7473 0x1090CF: main (adjacency_list.hpp:304)
+ n0: 1124 in 8 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=81
+#-----------
+time=34516640
+mem_heap_B=3391807
+mem_heap_extra_B=215185
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=34555050
+mem_heap_B=3382730
+mem_heap_extra_B=198654
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=34593464
+mem_heap_B=3373668
+mem_heap_extra_B=182108
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=34631874
+mem_heap_B=3364591
+mem_heap_extra_B=165577
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=34670288
+mem_heap_B=3355529
+mem_heap_extra_B=149031
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=86
+#-----------
+time=34708698
+mem_heap_B=3346452
+mem_heap_extra_B=132500
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=34747112
+mem_heap_B=3337390
+mem_heap_extra_B=115954
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=34785522
+mem_heap_B=3328313
+mem_heap_extra_B=99423
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=89
+#-----------
+time=34823936
+mem_heap_B=3319251
+mem_heap_extra_B=82877
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=90
+#-----------
+time=34862346
+mem_heap_B=3310174
+mem_heap_extra_B=66346
+mem_stacks_B=0
+heap_tree=detailed
+n4: 3310174 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109044: main (new_allocator.h:111)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF000271: ???
+      n0: 72704 0x1FFF000293: ???
+ n1: 34208 0x10B338: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 34208 0x10962B: main (vector.tcc:105)
+ n0: 3262 in 9 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=91
+#-----------
+time=34900760
+mem_heap_B=3301112
+mem_heap_extra_B=49800
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=92
+#-----------
+time=34939170
+mem_heap_B=3292035
+mem_heap_extra_B=33269
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=93
+#-----------
+time=34977584
+mem_heap_B=3282973
+mem_heap_extra_B=16723
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=94
+#-----------
+time=35015994
+mem_heap_B=3273896
+mem_heap_extra_B=192
+mem_stacks_B=0
+heap_tree=empty

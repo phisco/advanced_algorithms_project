@@ -1,0 +1,818 @@
+desc: --massif-out-file=massif.out.pearce --threshold=0.1
+cmd: ../../../cmake-build-debug/pearce 100000
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=2408683
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=2531110
+mem_heap_B=72804
+mem_heap_extra_B=52
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=5332307
+mem_heap_B=3272804
+mem_heap_extra_B=60
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=6132367
+mem_heap_B=3272805
+mem_heap_extra_B=83
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=7837964
+mem_heap_B=3427862
+mem_heap_extra_B=246354
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=8950614
+mem_heap_B=3529012
+mem_heap_extra_B=407004
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=10790847
+mem_heap_B=3696324
+mem_heap_extra_B=672692
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3696324 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 398608 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 398608 0x10963D: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n0: 24912 0x109107: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=8
+#-----------
+time=12330979
+mem_heap_B=3836336
+mem_heap_extra_B=895064
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3836336 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 530384 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 530384 0x10963D: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n0: 33148 0x109107: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=9
+#-----------
+time=13998645
+mem_heap_B=3987942
+mem_heap_extra_B=1135850
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3987942 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 673072 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 673072 0x10963D: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n0: 42066 0x109107: main (adjacency_list.hpp:304)
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=10
+#-----------
+time=15692995
+mem_heap_B=4141963
+mem_heap_extra_B=1380493
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=16641833
+mem_heap_B=4228221
+mem_heap_extra_B=1517491
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=17629193
+mem_heap_B=4317981
+mem_heap_extra_B=1660051
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=18656571
+mem_heap_B=4411379
+mem_heap_extra_B=1808405
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=19725463
+mem_heap_B=4508551
+mem_heap_extra_B=1962737
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=20678206
+mem_heap_B=4595182
+mem_heap_extra_B=2100306
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=21824516
+mem_heap_B=4699392
+mem_heap_extra_B=2265816
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=23016828
+mem_heap_B=4807784
+mem_heap_extra_B=2437968
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=24258134
+mem_heap_B=4920630
+mem_heap_extra_B=2617194
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=24977415
+mem_heap_B=4986012
+mem_heap_extra_B=2721036
+mem_stacks_B=0
+heap_tree=detailed
+n5: 4986012 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 1612432 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 1612432 0x10963D: main (vector.tcc:105)
+ n0: 100776 0x109107: main (adjacency_list.hpp:304)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n0: 100 in 2 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=20
+#-----------
+time=26215276
+mem_heap_B=5098552
+mem_heap_extra_B=2899776
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=27586360
+mem_heap_B=5223196
+mem_heap_extra_B=3097740
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=29256479
+mem_heap_B=5375007
+mem_heap_extra_B=3338873
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=30243399
+mem_heap_B=5464717
+mem_heap_extra_B=3481371
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=31139943
+mem_heap_B=5546231
+mem_heap_extra_B=3610817
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=32715979
+mem_heap_B=5689507
+mem_heap_extra_B=3838373
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=33527933
+mem_heap_B=5763321
+mem_heap_extra_B=3955607
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=35021623
+mem_heap_B=5899101
+mem_heap_extra_B=4171275
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=36062905
+mem_heap_B=5993773
+mem_heap_extra_B=4321619
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=37838657
+mem_heap_B=6155205
+mem_heap_extra_B=4578011
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=38753461
+mem_heap_B=6238369
+mem_heap_extra_B=4710095
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=39686591
+mem_heap_B=6323199
+mem_heap_extra_B=4844825
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=40883325
+mem_heap_B=6431983
+mem_heap_extra_B=5017617
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=42469990
+mem_heap_B=6576228
+mem_heap_extra_B=5246716
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=43938716
+mem_heap_B=7073431
+mem_heap_extra_B=5400145
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=47176306
+mem_heap_B=7073943
+mem_heap_extra_B=5400153
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=48046852
+mem_heap_B=7238727
+mem_heap_extra_B=5402649
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=49553407
+mem_heap_B=7540279
+mem_heap_extra_B=5406969
+mem_stacks_B=0
+heap_tree=detailed
+n8: 7540279 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 3200000 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 3200000 0x10963D: main (vector.tcc:105)
+ n3: 436224 0x10A75D: void std::deque<unsigned long, std::allocator<unsigned long> >::_M_push_back_aux<unsigned long const&>(unsigned long const&) (new_allocator.h:111)
+  n1: 145408 0x10AD32: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+  n1: 145408 0x10AD55: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+  n1: 145408 0x10AEDE: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 145408 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+ n1: 400000 0x10A680: std::vector<int, std::allocator<int> >::_M_default_append(unsigned long) (new_allocator.h:111)
+  n0: 400000 0x1097E6: main (stl_vector.h:692)
+ n0: 200000 0x109107: main (adjacency_list.hpp:304)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n2: 30688 0x10A7F7: void std::deque<unsigned long, std::allocator<unsigned long> >::_M_push_back_aux<unsigned long const&>(unsigned long const&) (new_allocator.h:111)
+  n1: 20464 0x10AD32: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+  n0: 10224 in 2 places, all below massif's threshold (0.10%)
+ n0: 663 in 6 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=38
+#-----------
+time=50411440
+mem_heap_B=7688263
+mem_heap_extra_B=5409433
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=51530336
+mem_heap_B=7893575
+mem_heap_extra_B=5412641
+mem_stacks_B=0
+heap_tree=peak
+n8: 7893575 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 3200000 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 3200000 0x10963D: main (vector.tcc:105)
+ n3: 799744 0x10A75D: void std::deque<unsigned long, std::allocator<unsigned long> >::_M_push_back_aux<unsigned long const&>(unsigned long const&) (new_allocator.h:111)
+  n1: 266752 0x10AD32: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+  n1: 266752 0x10AD55: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n2: 266752 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n0: 512 in 1 place, below massif's threshold (0.10%)
+  n1: 266240 0x10AEDE: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 266240 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+ n1: 400000 0x10A680: std::vector<int, std::allocator<int> >::_M_default_append(unsigned long) (new_allocator.h:111)
+  n0: 400000 0x1097E6: main (stl_vector.h:692)
+ n0: 200000 0x109107: main (adjacency_list.hpp:304)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n2: 20464 0x10A7F7: void std::deque<unsigned long, std::allocator<unsigned long> >::_M_push_back_aux<unsigned long const&>(unsigned long const&) (new_allocator.h:111)
+  n1: 20464 0x10AD32: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (stl_deque.h:1552)
+   n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+    n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+     n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+      n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+       n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+        n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+         n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+          n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+           n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+            n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+             n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+              n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+               n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                 n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                  n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                   n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                    n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                     n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                      n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                       n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                        n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                         n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                          n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                           n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                            n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                             n1: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+                              n0: 20464 0x10AD99: PearceClass<boost::iterator_property_map<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, unsigned long>, int, int&> >::pearce(unsigned long const&) (my_pearce.cpp:42)
+  n0: 0 in 2 places, all below massif's threshold (0.10%)
+ n0: 663 in 6 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=40
+#-----------
+time=52879112
+mem_heap_B=7155271
+mem_heap_extra_B=5401105
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=53896860
+mem_heap_B=7094855
+mem_heap_extra_B=5400153
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=55733327
+mem_heap_B=6091645
+mem_heap_extra_B=4475419
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=57324917
+mem_heap_B=5576273
+mem_heap_extra_B=3656871
+mem_stacks_B=0
+heap_tree=detailed
+n5: 5576273 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 2167008 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 2167008 0x10963D: main (vector.tcc:105)
+ n0: 135437 0x109107: main (adjacency_list.hpp:304)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n0: 1124 in 10 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=44
+#-----------
+time=58304357
+mem_heap_B=5259121
+mem_heap_extra_B=3153159
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=59283797
+mem_heap_B=4941969
+mem_heap_extra_B=2649447
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=60263237
+mem_heap_B=4624817
+mem_heap_extra_B=2145735
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=61242677
+mem_heap_B=4307665
+mem_heap_extra_B=1642023
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=62222117
+mem_heap_B=3990513
+mem_heap_extra_B=1138311
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3990513 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 674528 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 674528 0x10963D: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n0: 42157 0x109107: main (adjacency_list.hpp:304)
+ n0: 1124 in 10 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=49
+#-----------
+time=63446417
+mem_heap_B=3594073
+mem_heap_extra_B=508671
+mem_stacks_B=0
+heap_tree=detailed
+n5: 3594073 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3200000 0x109082: main (new_allocator.h:111)
+ n1: 301408 0x10B1B8: void std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > >::_M_realloc_insert<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> >(__gnu_cxx::__normal_iterator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>*, std::vector<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>, std::allocator<boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag> > > >, boost::detail::stored_edge_property<unsigned long, boost::disallow_parallel_edge_tag>&&) (new_allocator.h:111)
+  n0: 301408 0x10963D: main (vector.tcc:105)
+ n1: 72704 0x50C8498: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+  n1: 72704 0x4010731: _dl_init (dl-init.c:72)
+   n1: 72704 0x40010C8: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+    n1: 72704 0x0: ???
+     n1: 72704 0x1FFF00025D: ???
+      n0: 72704 0x1FFF00027F: ???
+ n0: 18837 0x109107: main (adjacency_list.hpp:304)
+ n0: 1124 in 10 places, all below massif's threshold (0.10%)
+#-----------
+snapshot=50
+#-----------
+time=63568847
+mem_heap_B=3554429
+mem_heap_extra_B=445707
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=63691277
+mem_heap_B=3514785
+mem_heap_extra_B=382743
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=63813707
+mem_heap_B=3475141
+mem_heap_extra_B=319779
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=63936137
+mem_heap_B=3435497
+mem_heap_extra_B=256815
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=64058567
+mem_heap_B=3395853
+mem_heap_extra_B=193851
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=64180997
+mem_heap_B=3356209
+mem_heap_extra_B=130887
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=64303427
+mem_heap_B=3316565
+mem_heap_extra_B=67923
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=64425857
+mem_heap_B=3276921
+mem_heap_extra_B=4959
+mem_stacks_B=0
+heap_tree=empty
