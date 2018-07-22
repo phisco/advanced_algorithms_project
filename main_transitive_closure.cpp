@@ -1,8 +1,3 @@
-//
-// Created by root on 03/07/18.
-//
-
-
 #include "include_and_types.cpp"
 #include <set>
 #include "my_transitive_closure.cpp"
@@ -37,6 +32,7 @@ int main(int, char*[]){
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);
 
+    //Graph printing
     std::cout << "A directed graph:" << std::endl;
     print_graph(g, get(vertex_index, g));
     std::cout << std::endl;
@@ -48,10 +44,8 @@ int main(int, char*[]){
     //used only to compare results. This applies the built-in function of Boost for applying transitive closure
     std::cout << "BGL"<<std::endl;
     Graph gt;
-
     transitive_closure(g,gt);
     print_graph(gt, get(vertex_index,gt));
 
     return 0;
-
 }

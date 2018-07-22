@@ -1,7 +1,3 @@
-//
-// Created by root on 02/07/18.
-//
-
 #include "include_and_types.cpp"
 #include <set>
 #include <boost/graph/detail/set_adaptor.hpp>

@@ -5,6 +5,15 @@ using namespace boost;
 
 int main(int, char*[])
 {
+
+    //This function takes a graph formatted by graphml fashion from the stdin
+    /*Graph g;
+    dynamic_properties dp;
+    read_graphml(std::cin, g, dp);*/
+
+
+    /*This is an example of how to modify this code for describing a graph "by hand" without using graphml parser and
+    stdin*/
     typedef std::pair<int, int> Edge;
 
     const int num_nodes = 8;
@@ -27,14 +36,16 @@ int main(int, char*[])
 
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
 
+    //Graph printing
     std::cout << "A directed graph:" << std::endl;
     print_graph(g, name);
     std::cout << std::endl;
 
-    //Imperative Version
+    //Instantiation of the PearceNR class object
     PearceNR <typeBool, typeInt> pearcenr(&g);
     std::vector<int>* rindex = pearcenr.pearce_not_recursive_scc();
 
+    //Results printing
     IndexMap index=get(vertex_index,g);
     for (int i = 0; i != num_vertices(g); ++i){
         std::cout << index[i] << " -> " << (*rindex)[i] << std::endl;
