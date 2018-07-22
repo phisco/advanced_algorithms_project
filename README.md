@@ -3,28 +3,28 @@ Strongly connected component algorithms implementations using BGL (boost graph l
 
 ## Files:
 ### Algorithms :
--   my_tarjan.cpp : Tarjan's algorithm implementation with timer
--   my_nuutila.cpp : Nuutila's algorithm implementation with timer
--   my_pearce.cpp : Pearce's algorithm recursive implementation with timer
--   my_pearce_not_recursive.cpp : Pearce's algorithm non recursive implementation with timer
--   my_transitive_closure.cpp : Pearce's paper application example with graph transitive closure computation
+-   [my_tarjan.cpp](my_tarjan.cpp) : Tarjan's algorithm implementation with timer
+-   [my_nuutila.cpp](my_nuutila.cpp) : Nuutila's algorithm implementation with timer
+-   [my_pearce.cpp](my_pearce.cpp) : Pearce's algorithm recursive implementation with timer
+-   [my_pearce_not_recursive.cpp](my_pearce_not_recursive.cpp) : Pearce's algorithm non recursive implementation with timer
+-   [my_transitive_closure.cpp](my_transitive_closure.cpp) : Pearce's paper application example with graph transitive closure computation
 ### Mains :
--   main.cpp : simple test running the three versions against the bgl implementation on a randomly generated graph, build with ```g++ -O2 -lboost_graph -lboost_timer main.cpp -o main```, run with ```./main```
--   main_*.cpp : examples of application and timing with graphs passed from stdin in graphml format
+-   [main.cpp](main.cpp) : simple test running the three versions against the bgl implementation on a randomly generated graph, build with ```g++ -O2 -lboost_graph -lboost_timer main.cpp -o main```, run with ```./main```
+-   [main_*.cpp](main_*.cpp) : examples of application and timing with graphs passed from stdin in graphml format
     build with ```g++ -O2 -lboost_graph -lboost_timer  main_*.cpp -o main_*```, run with
     ```./main_* < graphml_file```
--   test_from_stdin.cpp : runs the three versions of the algorithm against the bgl implementation timing them and checking for correctness, reads graph from stdin in graphml format, used to measure timing samples, build with ```g++ -O2 -lboost_graph -lboost_timer test_from_stdin.cpp -o test_from_stdin```, run with ```./test_from_stdin < graphml_file```
+-   [test_from_stdin.cpp](test_from_stdin.cpp) : runs the three versions of the algorithm against the bgl implementation timing them and checking for correctness, reads graph from stdin in graphml format, used to measure timing samples, build with ```g++ -O2 -lboost_graph -lboost_timer test_from_stdin.cpp -o test_from_stdin```, run with ```./test_from_stdin < graphml_file```
 ### Scripts :
--   time_test.sh : runs test_from_stdin for each of the graphs in the specified directory and prints to stdout the results (time and correctness), run with ```./time_test.sh dir_with_graphs```
--   generate_graph.cpp : outputs to stdout a graph in graphml format with a specified number of vertices and probability of having an edge between two vertices, build with ```g++ -O2 -lboost_graph -lboost_timer generate_graph.cpp -o generate_graph```, run with ```./generate_graph number_of_vertices edge_probability```
--   generate_graph.sh : script generates in a specified direcotory graphs to be used for timing measures, run with ```./generate_graph.sh root_dir min_nodes step max_nodes step_edges max_edges```
--   test_tc.sh : tests transitive closure over all the graphs in a directory and store to file results
--   read_peaks.sh : reads memory peaks from a specified directory of files outputted from massif and
+-   [time_test.sh](time_test.sh) : runs test_from_stdin for each of the graphs in the specified directory and prints to stdout the results (time and correctness), run with ```./time_test.sh dir_with_graphs```
+-   [generate_graph.cpp](generate_graph.cpp) : outputs to stdout a graph in graphml format with a specified number of vertices and probability of having an edge between two vertices, build with ```g++ -O2 -lboost_graph -lboost_timer generate_graph.cpp -o generate_graph```, run with ```./generate_graph number_of_vertices edge_probability```
+-   [generate_graph.sh](generate_graph.sh) : script generates in a specified direcotory graphs to be used for timing measures, run with ```./generate_graph.sh root_dir min_nodes step max_nodes step_edges max_edges```
+-   [test_tc.sh](test_tc.sh) : tests transitive closure over all the graphs in a directory and store to file results
+-   [read_peaks.sh](read_peaks.sh) : reads memory peaks from a specified directory of files outputted from massif and
     produces a csv with the measurements, run with ```./read_peaks.sh massif_files_directory```
--   read_peaks.py : script used by read_peaks.sh, reads res.txt and produces res.csv
+-   [read_peaks.py](read_peaks.py) : script used by read_peaks.sh, reads res.txt and produces res.csv
 ### Notebooks :
--   time_analysis.ipynb : notebook taking the output from time_test.sh, generating a csv and plotting the measurements
--   memory.ipynb : notebook taking the output from read_peaks.sh and plotting the measurements
+-   [time_analysis.ipynb](time_analysis.ipynb) : notebook taking the output from time_test.sh, generating a csv and plotting the measurements
+-   [memory.ipynb](memory.ipynb) : notebook taking the output from read_peaks.sh and plotting the measurements
 ### Data :
 -   g0_1000/* : randomly generated graphs with 0 to 1000 vertices (V) with step 10 and 0 to 1000 edges, increasing probability s.t. number of edges is between 0 and V*(V-1) with step 10
 -   mem_graphs/* : graphs generated to be used for memory profiling
