@@ -76,11 +76,6 @@ int main(int, char*[])
                                     discover_time_map(make_iterator_property_map(discover_time.begin(), get(vertex_index, g))));
 
 
-    // warm up run
-    std::cout << "Dirty\t\t" << std::flush;
-    TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> t(&g);
-    t.tarjan_scc();
-
     // Tarjan's algorithm over the given graph
     std::cout << "Tarjan\t\t" << std::flush;
     TarjanClass<typeInt, typeInt, typeInt, typeBool, typeBool, typeInt> tarjan(&g);
