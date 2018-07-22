@@ -75,7 +75,7 @@ public:
         int n=num_vertices(*g);
 
         //Data structure allocation and initialization
-        rind=*new std::vector<int>(n);
+        rind.resize(n);
         rindex=make_iterator_property_map(rind.begin(), get(vertex_index, *g));
 
         // the needed counters

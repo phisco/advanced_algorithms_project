@@ -99,12 +99,12 @@ public:
         int n=num_vertices(*g);
 
         //Data structure allocation
-        comp= *new std::vector<int>(n);
-        lowvineVet = *new std::vector<int>(n);
-        number = *new std::vector<int>(n);
-        lowptVet = *new std::vector<int>(n);
-        stackmember = *new std::vector<bool>(n);
-        ancestorVet = *new std::vector<bool>(n);
+        comp.resize(n);
+        lowvineVet.resize(n);
+        number.resize(n);
+        lowptVet.resize(n);
+        stackmember.resize(n);
+        ancestorVet.resize(n);
 
         //Boolean vector initialization
         for (int i = 0; i < n; i++) {

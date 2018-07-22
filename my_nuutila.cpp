@@ -84,9 +84,9 @@ public:
         int n = num_vertices(*g);
 
         //Data structure allocation
-        number = *new std::vector<int>(n);
-        inComponentVec = *new std::vector<bool>(n);
-        rootVet=*new std::vector<int>(n);
+        number.resize(n);
+        inComponentVec.resize(n);
+        rootVet.resize(n);
 
         //InComponentVec initialization
         for (int i = 0; i < num_vertices(*g); i++){
