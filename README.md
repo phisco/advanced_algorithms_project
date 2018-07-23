@@ -10,7 +10,7 @@ Strongly connected component algorithms implementations using BGL (boost graph l
 -   [my_transitive_closure.cpp](my_transitive_closure.cpp) : Pearce's paper application example with graph transitive closure computation
 ### Mains :
 -   [main.cpp](main.cpp) : simple test running the three versions against the bgl implementation on a randomly generated graph, build with ```g++ -O2 -lboost_graph -lboost_timer main.cpp -o main```, run with ```./main```
--   [main_*.cpp](main_*.cpp) : examples of application and timing with graphs passed from stdin in graphml format
+-   main_*.cpp : examples of application and timing with graphs passed from stdin in graphml format
     build with ```g++ -O2 -lboost_graph -lboost_timer  main_*.cpp -o main_*```, run with
     ```./main_* < graphml_file```
 -   [test_from_stdin.cpp](test_from_stdin.cpp) : runs the three versions of the algorithm against the bgl implementation timing them and checking for correctness, reads graph from stdin in graphml format, used to measure timing samples, build with ```g++ -O2 -lboost_graph -lboost_timer test_from_stdin.cpp -o test_from_stdin```, run with ```./test_from_stdin < graphml_file```
