@@ -13,7 +13,7 @@ Strongly connected component algorithms implementations using BGL (boost graph l
 -   main_*.cpp : examples of application and timing with graphs passed from stdin in graphml format
     build with ```g++ -O2 -lboost_graph -lboost_timer  main_*.cpp -o main_*```, run with
     ```./main_* < graphml_file```
--   [test_from_stdin.cpp](test_from_stdin.cpp) : runs the three versions of the algorithm against the bgl implementation timing them and checking for correctness, reads graph from stdin in graphml format, used to measure timing samples, build with ```g++ -O2 -lboost_graph -lboost_timer test_from_stdin.cpp -o test_from_stdin```, run with ```./test_from_stdin < graphml_file```
+-   [test_from_stdin.cpp](test_from_stdin.cpp) : runs the four versions of the algorithm against the bgl implementation timing them and checking for correctness, reads graph from stdin in graphml format, used to measure timing samples, build with ```g++ -O2 -lboost_graph -lboost_timer test_from_stdin.cpp -o test_from_stdin```, run with ```./test_from_stdin < graphml_file```
 ### Scripts :
 -   [time_test.sh](time_test.sh) : runs test_from_stdin for each of the graphs in the specified directory and prints to stdout the results (time and correctness), run with ```./time_test.sh dir_with_graphs```
 -   [generate_graph.cpp](generate_graph.cpp) : outputs to stdout a graph in graphml format with a specified number of vertices and probability of having an edge between two vertices, build with ```g++ -O2 -lboost_graph -lboost_timer generate_graph.cpp -o generate_graph```, run with ```./generate_graph number_of_vertices edge_probability```
