@@ -23,9 +23,6 @@ using namespace std;
 
 
 int main(int, char*[]){
-    //for debugging purpouses
-    /*std::ifstream in("/home/emanuele/Scrivania/advanced_algorithms_project/graphs/6_0.2_6.xml");
-    std::cin.rdbuf(in.rdbuf());*/
 
     //Reading graph from stdin
     Graph g;

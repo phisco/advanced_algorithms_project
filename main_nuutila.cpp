@@ -20,6 +20,7 @@ typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
 int main(int, char*[])
 {
+    //An example of how to design a graph "by hand" without using Graphml and stdin
     /*enum { A, B, C, D, E, F, G, H, I, N };
     const int num_nodes = N;
     const char* name = "ABCDEFGHI";
@@ -30,57 +31,30 @@ int main(int, char*[])
             { Edge(A,B), Edge(B,A), Edge(A,C), Edge(C,A), Edge(B,D), Edge(C,D),
               Edge(E,C), Edge(E,F), Edge(F,D), Edge(D,F), Edge(E,H), Edge(H,F), Edge(H,G), Edge(G,E),
               Edge(I,G), Edge(I,H), Edge(I,I)};
-    const int num_edges = sizeof(edge_array)/sizeof(edge_array[0]);
-
-    typedef std::pair<int, int> Edge;
-
-    const int num_nodes = 8;
-
-    enum nodes { A, B, C, D, E, F, G, H, I, L, M, N};
-    char name[] = "ABCDEFGHILMN";
-
-    Edge edge_array[] = { Edge(A, B),
-                          Edge(B, C), Edge(B, H),
-                          Edge(C, D), Edge(C, G),
-                          Edge(D, E),
-                          Edge(E, F), Edge(E, C),
-                          Edge(G, F), Edge(G, D),
-                          Edge(H, A), Edge(H, G),
-                          Edge(I, L),
-                          Edge(M, N), Edge(N, M)
-    };
 
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
 
+
     //This function takes a graph formatted by graphml fashion from the stdin
-    /*Graph g;
+    Graph g;
     dynamic_properties dp;
-    read_graphml(std::cin, g, dp);*/
+    read_graphml(std::cin, g, dp);
 
-    typedef std::pair<int, int> Edge;
-    int n= 100000;
-    Edge edge_array[n-1];
-
-
-    for(int i=0;i<n-1;i++){
-        edge_array[i]=Edge(i,i+1);
-    }
-
-    int num_arcs = sizeof(edge_array) / sizeof(Edge);
-    Graph g(edge_array, edge_array + num_arcs, n);
-
-    /*std::cout << "A directed graph:" << std::endl;
+    //Printing the graph
+    std::cout << "A directed graph:" << std::endl;
     print_graph(g, get(vertex_index,g));
-    std::cout << std::endl;*/
+    std::cout << std::endl;
 
+    //NuutilaClass instance
     NuutilaClass<typeInt, typeInt, typeBool> nuutila(&g);
     std::vector<int>* root = nuutila.nuutila_scc();
 
-    /*IndexMap index = get(vertex_index,g);
+    //Printing the results
+    IndexMap index = get(vertex_index,g);
     
     for (int i = 0; i != root->size(); ++i){
         std::cout << index[i] << " -> " << index[(*root)[i]] << std::endl;
-    }*/
+    }
     return 0;
 }

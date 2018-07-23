@@ -31,9 +31,8 @@ int main(int, char*[])
                           Edge(I, L),
                           Edge(M, N), Edge(N, M)
     };
-
+    
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
-
     Graph g(edge_array, edge_array + num_arcs, num_nodes);
 
     //Graph printing

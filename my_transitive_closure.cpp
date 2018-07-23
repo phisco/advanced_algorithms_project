@@ -125,10 +125,10 @@ public:
         n--;
 
         //data structures allocation
-        rootVet=*new std::vector<Vertex>(n);
-        inCompVet=*new std::vector<bool>(n);
-        sets=*new std::vector<std::set<Vertex>*>(n);
-        vect=*new std::vector<std::set<Vertex>>(n);
+        rootVet.resize(n);
+        inCompVet.resize(n);
+        sets.resize(n);
+        vect.resize(n);
 
         //Properties instantiation
         root=make_iterator_property_map(rootVet.begin(), get(vertex_index,*g));
@@ -144,8 +144,10 @@ public:
      * procedure's result when it is done.
      */
     void transitive_closure_scc(){
+        //Execution of the procedure
         transitive_closure_main();
 
+        //Printing our results
         std::cout << "Ours" << std::endl;
         IndexMap index = get(vertex_index,*g);
         vertex_iter it, it_end;

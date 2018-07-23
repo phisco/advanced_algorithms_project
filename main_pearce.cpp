@@ -20,55 +20,25 @@ typedef typename property_map<Graph, vertex_index_t>::type IndexMap;
 
 int main(int, char*[])
 {
-    /*typedef std::pair<int, int> Edge;
-
-
-    enum nodes { A, B, C, D, E, F, G, H, I, L, M, N};
-    char name[] = "ABCDEFGHILMN";
-    const int num_nodes = N - A + 1;
-
-    Edge edge_array[] = { Edge(A, B),
-                          Edge(B, C), Edge(B, H),
-                          Edge(C, D), Edge(C, G),
-                          Edge(D, E),
-                          Edge(E, F), Edge(E, C),
-                          Edge(G, F), Edge(G, D),
-                          Edge(H, A), Edge(H, G),
-                          Edge(I, L),
-                          Edge(M, N), Edge(N, M)
-    };
-
-    int num_arcs = sizeof(edge_array) / sizeof(Edge);
-    Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
-
+    
     //This function takes a graph formatted by graphml fashion from the stdin
-    /*Graph g;
+    Graph g;
     dynamic_properties dp;
-    read_graphml(std::cin, g, dp);*/
-
-    typedef std::pair<int, int> Edge;
-    int n= 100000;
-    Edge edge_array[n-1];
-
-
-    for(int i=0;i<n-1;i++){
-        edge_array[i]=Edge(i,i+1);
-    }
-
-    int num_arcs = sizeof(edge_array) / sizeof(Edge);
-    Graph g(edge_array, edge_array + num_arcs, n);
-
-    /*std::cout << "A directed graph:" << std::endl;
+    read_graphml(std::cin, g, dp);
+    
+    //Printing the graph
+    std::cout << "A directed graph:" << std::endl;
     print_graph(g, get(vertex_index,g));
-    std::cout << std::endl;*/
+    std::cout << std::endl;
 
     //PearceClass object
     PearceClass<typeInt> pearce(&g);
     std::vector<int>* rindex = pearce.pearce_scc();
 
-    /*IndexMap index=get(vertex_index,g);
+    //Printing the result
+    IndexMap index=get(vertex_index,g);
     for (int i = 0; i != num_vertices(g); ++i){
         std::cout << index[i] << " -> " << (*rindex)[i] << std::endl;
-    }*/
+    }
     return 0;
 }
