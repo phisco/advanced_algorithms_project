@@ -5,16 +5,9 @@ using namespace boost;
 
 int main(int, char*[])
 {
-
-    //This function takes a graph formatted by graphml fashion from the stdin
-    /*Graph g;
-    dynamic_properties dp;
-    read_graphml(std::cin, g, dp);*/
-
-
     /*This is an example of how to modify this code for describing a graph "by hand" without using graphml parser and
     stdin*/
-    typedef std::pair<int, int> Edge;
+    /*typedef std::pair<int, int> Edge;
 
     const int num_nodes = 8;
 
@@ -33,8 +26,13 @@ int main(int, char*[])
     };
     
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
-    Graph g(edge_array, edge_array + num_arcs, num_nodes);
+    Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
 
+    //This function takes a graph formatted by graphml fashion from the stdin
+    Graph g;
+    dynamic_properties dp;
+    read_graphml(std::cin, g, dp);
+    
     //Graph printing
     std::cout << "A directed graph:" << std::endl;
     print_graph(g, name);
