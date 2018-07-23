@@ -1,13 +1,9 @@
 #include "include_and_types.cpp"
 #include <set>
 #include "my_transitive_closure.cpp"
-#include <boost/graph/erdos_renyi_generator.hpp>
-#include <boost/random/linear_congruential.hpp>
 #include <boost/graph/graphml.hpp>
 #include <boost/property_map/dynamic_property_map.hpp>
 #include <boost/graph/transitive_closure.hpp>
-
-typedef boost::erdos_renyi_iterator<boost::minstd_rand, Graph> ERGen;
 
 //Ad-hoc typedef interator_property_map types
 typedef boost::iterator_property_map<__gnu_cxx::__normal_iterator<long unsigned int*, std::vector<long unsigned int> >,

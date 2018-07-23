@@ -1,5 +1,8 @@
 #include "my_pearce_not_recursive.cpp"
 #include "include_and_types.cpp"
+#include <boost/property_map/dynamic_property_map.hpp>
+#include <boost/graph/graphml.hpp>
+#include <boost/property_map/dynamic_property_map.hpp>
 
 using namespace boost;
 
@@ -28,14 +31,14 @@ int main(int, char*[])
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
     Graph g(edge_array, edge_array + num_arcs, num_nodes);*/
 
-    //This function takes a graph formatted by graphml fashion from the stdin
+    //Reading graph from stdin
     Graph g;
     dynamic_properties dp;
     read_graphml(std::cin, g, dp);
-    
+
     //Graph printing
     std::cout << "A directed graph:" << std::endl;
-    print_graph(g, name);
+    print_graph(g, get(vertex_index,g));
     std::cout << std::endl;
 
     //Instantiation of the PearceNR class object
