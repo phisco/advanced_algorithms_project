@@ -12,6 +12,10 @@ with open("res.txt", "r") as fr:
             stack = [x for x in l if x.startswith("mem_stacks_B")][0].split("=")[-1]
             mem = int(heap)+int(stack)
             print(l, " = ", mem)
-
-            fw.write(",".join(lines[i].split(".")[-1].strip().split("_"))+","+str(mem)+"\n")
+            if not l[0].startswith("massif.out.pearce_nr"):
+                fw.write(",".join(l[0].split(".")[-1].strip().split("_")))
+            else:
+                d= l[0][len("massif.out.pearce_nr_"):].split("_")
+                fw.write(",".join(["pearce_nr",d[0],d[-1]]))
+            fw.write(","+str(mem)+"\n")
             i+=4
