@@ -2,6 +2,9 @@
 Strongly connected component algorithms implementations using BGL (boost graph library)
 
 ## Files:
+### Presentation:
+- [Project slides presented on July, the 25th](AA_project.pptx)
+
 ### Algorithms :
 -   [my_tarjan.cpp](my_tarjan.cpp) : Tarjan's algorithm implementation with timer
 -   [my_nuutila.cpp](my_nuutila.cpp) : Nuutila's algorithm implementation with timer
