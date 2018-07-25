@@ -3,7 +3,7 @@ Strongly connected component algorithms implementations using BGL (boost graph l
 
 ## Files:
 ### Presentation:
-- [Project slides presented on July, the 25th](AA_project.pptx)
+- [Project slides presented on July, the 25th](AA_project.pdf)
 
 ### Algorithms :
 -   [my_tarjan.cpp](my_tarjan.cpp) : Tarjan's algorithm implementation with timer
